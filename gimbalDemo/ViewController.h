@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ContextLocation/QLContextPlaceConnector.h>
+#import <FYX/FYX.h>
+#import <FYX/FYXVisitManager.h>
 
-@interface ViewController : UIViewController
+NSString* date();
+
+@interface ViewController : UIViewController <QLContextPlaceConnectorDelegate, FYXServiceDelegate, FYXVisitDelegate>
+
+@property IBOutlet UITextField *deviceDisplay;
+
+@property (nonatomic, strong) QLContextPlaceConnector *placeConnector;
+@property (nonatomic) FYXVisitManager *visitManager;
+@property (nonatomic) UILocalNotification *localNotification;
 
 @end
+
+#define DeviceLog(message, ...) self.deviceDisplay.text = [self.deviceDisplay.text stringByAppendingString:[NSString stringWithFormat:message, ##__VA_ARGS__]]

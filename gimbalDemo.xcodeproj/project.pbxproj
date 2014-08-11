@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39A407331995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A4072F1995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png */; };
 		39A7257E1994438C00F23812 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A7257D1994438C00F23812 /* Foundation.framework */; };
 		39A725801994438C00F23812 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A7257F1994438C00F23812 /* CoreGraphics.framework */; };
 		39A725821994438C00F23812 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725811994438C00F23812 /* UIKit.framework */; };
@@ -21,9 +22,38 @@
 		39A7259F1994438C00F23812 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725811994438C00F23812 /* UIKit.framework */; };
 		39A725A71994438C00F23812 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A725A51994438C00F23812 /* InfoPlist.strings */; };
 		39A725A91994438C00F23812 /* gimbalDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A725A81994438C00F23812 /* gimbalDemoTests.m */; };
+		39A725B3199443BD00F23812 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725B2199443BD00F23812 /* CoreBluetooth.framework */; };
+		39A725B5199443C300F23812 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725B4199443C300F23812 /* CoreLocation.framework */; };
+		39A725B7199443CA00F23812 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725B6199443CA00F23812 /* CoreData.framework */; };
+		39A725B9199443D000F23812 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725B8199443D000F23812 /* libz.dylib */; };
+		39A725BB199443D600F23812 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725BA199443D600F23812 /* MapKit.framework */; };
+		39A725BD199443DC00F23812 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725BC199443DC00F23812 /* Security.framework */; };
+		39A725D01994441D00F23812 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725BF1994441D00F23812 /* Common.framework */; };
+		39A725D11994441D00F23812 /* ContextCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725C21994441D00F23812 /* ContextCore.framework */; };
+		39A725D21994441D00F23812 /* ContextLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725C51994441D00F23812 /* ContextLocation.framework */; };
+		39A725D31994441D00F23812 /* DataModels.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39A725C71994441D00F23812 /* DataModels.bundle */; };
+		39A725D41994441D00F23812 /* ContextProfiling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725C91994441D00F23812 /* ContextProfiling.framework */; };
+		39A725D51994441D00F23812 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 39A725CB1994441D00F23812 /* rules.txt */; };
+		39A725D61994441D00F23812 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725CC1994441D00F23812 /* FYX.framework */; };
+		39A725D71994441D00F23812 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A725CE1994441D00F23812 /* NetworkServices.framework */; };
+		39A725D91994445700F23812 /* UserContext.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39A725D81994445700F23812 /* UserContext.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		39A4073B19994123003EF46F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39A4073619994123003EF46F /* DataSnapClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 39FAE3B119894EA300709B62;
+			remoteInfo = DataSnapClient;
+		};
+		39A4073D19994123003EF46F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39A4073619994123003EF46F /* DataSnapClient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 39FAE3C119894EA300709B62;
+			remoteInfo = DataSnapClientTests;
+		};
 		39A725A01994438C00F23812 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 39A725721994438C00F23812 /* Project object */;
@@ -34,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39A4072F1995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DS-iOS7_AppIcons_120 x 120.png"; sourceTree = "<group>"; };
+		39A4073619994123003EF46F /* DataSnapClient.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DataSnapClient.xcodeproj; path = "iOS-SDK/DataSnapClient.xcodeproj"; sourceTree = "<group>"; };
 		39A7257A1994438C00F23812 /* gimbalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gimbalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39A7257D1994438C00F23812 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		39A7257F1994438C00F23812 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +85,21 @@
 		39A725A41994438C00F23812 /* gimbalDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gimbalDemoTests-Info.plist"; sourceTree = "<group>"; };
 		39A725A61994438C00F23812 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		39A725A81994438C00F23812 /* gimbalDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gimbalDemoTests.m; sourceTree = "<group>"; };
+		39A725B2199443BD00F23812 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		39A725B4199443C300F23812 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		39A725B6199443CA00F23812 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		39A725B8199443D000F23812 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		39A725BA199443D600F23812 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		39A725BC199443DC00F23812 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		39A725BF1994441D00F23812 /* Common.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Common.framework; sourceTree = "<group>"; };
+		39A725C21994441D00F23812 /* ContextCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextCore.framework; sourceTree = "<group>"; };
+		39A725C51994441D00F23812 /* ContextLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextLocation.framework; sourceTree = "<group>"; };
+		39A725C71994441D00F23812 /* DataModels.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DataModels.bundle; sourceTree = "<group>"; };
+		39A725C91994441D00F23812 /* ContextProfiling.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ContextProfiling.framework; sourceTree = "<group>"; };
+		39A725CB1994441D00F23812 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.txt; sourceTree = "<group>"; };
+		39A725CC1994441D00F23812 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = gimbalFrameworks/FYX.framework; sourceTree = "<group>"; };
+		39A725CE1994441D00F23812 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
+		39A725D81994445700F23812 /* UserContext.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserContext.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +107,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39A725BD199443DC00F23812 /* Security.framework in Frameworks */,
+				39A725D71994441D00F23812 /* NetworkServices.framework in Frameworks */,
+				39A725BB199443D600F23812 /* MapKit.framework in Frameworks */,
+				39A725B9199443D000F23812 /* libz.dylib in Frameworks */,
+				39A725D21994441D00F23812 /* ContextLocation.framework in Frameworks */,
+				39A725D61994441D00F23812 /* FYX.framework in Frameworks */,
+				39A725B7199443CA00F23812 /* CoreData.framework in Frameworks */,
+				39A725D11994441D00F23812 /* ContextCore.framework in Frameworks */,
+				39A725B5199443C300F23812 /* CoreLocation.framework in Frameworks */,
+				39A725B3199443BD00F23812 /* CoreBluetooth.framework in Frameworks */,
 				39A725801994438C00F23812 /* CoreGraphics.framework in Frameworks */,
+				39A725D41994441D00F23812 /* ContextProfiling.framework in Frameworks */,
+				39A725D01994441D00F23812 /* Common.framework in Frameworks */,
 				39A725821994438C00F23812 /* UIKit.framework in Frameworks */,
 				39A7257E1994438C00F23812 /* Foundation.framework in Frameworks */,
 			);
@@ -79,13 +138,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39A4072D1995874C003EF46F /* DataSnapIcons */ = {
+			isa = PBXGroup;
+			children = (
+				39A4072F1995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png */,
+			);
+			path = DataSnapIcons;
+			sourceTree = "<group>";
+		};
+		39A4073719994123003EF46F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39A4073C19994123003EF46F /* libDataSnapClient.a */,
+				39A4073E19994123003EF46F /* DataSnapClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		39A725711994438C00F23812 = {
 			isa = PBXGroup;
 			children = (
+				39A4073619994123003EF46F /* DataSnapClient.xcodeproj */,
 				39A725831994438C00F23812 /* gimbalDemo */,
 				39A725A21994438C00F23812 /* gimbalDemoTests */,
 				39A7257C1994438C00F23812 /* Frameworks */,
 				39A7257B1994438C00F23812 /* Products */,
+				39A4072D1995874C003EF46F /* DataSnapIcons */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +179,18 @@
 		39A7257C1994438C00F23812 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39A725BE1994441D00F23812 /* Common.embeddedframework */,
+				39A725C11994441D00F23812 /* ContextCore.embeddedframework */,
+				39A725C41994441D00F23812 /* ContextLocation.embeddedframework */,
+				39A725C81994441D00F23812 /* ContextProfiling.embeddedframework */,
+				39A725CC1994441D00F23812 /* FYX.framework */,
+				39A725CD1994441D00F23812 /* NetworkServices.embeddedframework */,
+				39A725BC199443DC00F23812 /* Security.framework */,
+				39A725BA199443D600F23812 /* MapKit.framework */,
+				39A725B8199443D000F23812 /* libz.dylib */,
+				39A725B6199443CA00F23812 /* CoreData.framework */,
+				39A725B4199443C300F23812 /* CoreLocation.framework */,
+				39A725B2199443BD00F23812 /* CoreBluetooth.framework */,
 				39A7257D1994438C00F23812 /* Foundation.framework */,
 				39A7257F1994438C00F23812 /* CoreGraphics.framework */,
 				39A725811994438C00F23812 /* UIKit.framework */,
@@ -130,6 +220,7 @@
 				39A725861994438C00F23812 /* InfoPlist.strings */,
 				39A725891994438C00F23812 /* main.m */,
 				39A7258B1994438C00F23812 /* gimbalDemo-Prefix.pch */,
+				39A725D81994445700F23812 /* UserContext.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -150,6 +241,93 @@
 				39A725A51994438C00F23812 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39A725BE1994441D00F23812 /* Common.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				39A725BF1994441D00F23812 /* Common.framework */,
+				39A725C01994441D00F23812 /* Resources */,
+			);
+			name = Common.embeddedframework;
+			path = gimbalFrameworks/Common.embeddedframework;
+			sourceTree = "<group>";
+		};
+		39A725C01994441D00F23812 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		39A725C11994441D00F23812 /* ContextCore.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				39A725C21994441D00F23812 /* ContextCore.framework */,
+				39A725C31994441D00F23812 /* Resources */,
+			);
+			name = ContextCore.embeddedframework;
+			path = gimbalFrameworks/ContextCore.embeddedframework;
+			sourceTree = "<group>";
+		};
+		39A725C31994441D00F23812 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		39A725C41994441D00F23812 /* ContextLocation.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				39A725C51994441D00F23812 /* ContextLocation.framework */,
+				39A725C61994441D00F23812 /* Resources */,
+			);
+			name = ContextLocation.embeddedframework;
+			path = gimbalFrameworks/ContextLocation.embeddedframework;
+			sourceTree = "<group>";
+		};
+		39A725C61994441D00F23812 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39A725C71994441D00F23812 /* DataModels.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		39A725C81994441D00F23812 /* ContextProfiling.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				39A725C91994441D00F23812 /* ContextProfiling.framework */,
+				39A725CA1994441D00F23812 /* Resources */,
+			);
+			name = ContextProfiling.embeddedframework;
+			path = gimbalFrameworks/ContextProfiling.embeddedframework;
+			sourceTree = "<group>";
+		};
+		39A725CA1994441D00F23812 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39A725CB1994441D00F23812 /* rules.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		39A725CD1994441D00F23812 /* NetworkServices.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				39A725CE1994441D00F23812 /* NetworkServices.framework */,
+				39A725CF1994441D00F23812 /* Resources */,
+			);
+			name = NetworkServices.embeddedframework;
+			path = gimbalFrameworks/NetworkServices.embeddedframework;
+			sourceTree = "<group>";
+		};
+		39A725CF1994441D00F23812 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +377,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Datasnap.io;
 				TargetAttributes = {
+					39A725791994438C00F23812 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					39A7259A1994438C00F23812 = {
 						TestTargetID = 39A725791994438C00F23812;
 					};
@@ -215,6 +400,12 @@
 			mainGroup = 39A725711994438C00F23812;
 			productRefGroup = 39A7257B1994438C00F23812 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 39A4073719994123003EF46F /* Products */;
+					ProjectRef = 39A4073619994123003EF46F /* DataSnapClient.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				39A725791994438C00F23812 /* gimbalDemo */,
@@ -223,14 +414,35 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		39A4073C19994123003EF46F /* libDataSnapClient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDataSnapClient.a;
+			remoteRef = 39A4073B19994123003EF46F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		39A4073E19994123003EF46F /* DataSnapClientTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DataSnapClientTests.xctest;
+			remoteRef = 39A4073D19994123003EF46F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		39A725781994438C00F23812 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				39A725961994438C00F23812 /* Images.xcassets in Resources */,
+				39A725D91994445700F23812 /* UserContext.plist in Resources */,
 				39A725881994438C00F23812 /* InfoPlist.strings in Resources */,
+				39A407331995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png in Resources */,
 				39A725911994438C00F23812 /* Main.storyboard in Resources */,
+				39A725D31994441D00F23812 /* DataModels.bundle in Resources */,
+				39A725D51994441D00F23812 /* rules.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +588,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gimbalFrameworks/Common.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks",
+					"$(PROJECT_DIR)/gimbalFrameworks/NetworkServices.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gimbalDemo/gimbalDemo-Prefix.pch";
 				INFOPLIST_FILE = "gimbalDemo/gimbalDemo-Info.plist";
@@ -389,6 +610,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gimbalFrameworks/Common.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks/ContextCore.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks/ContextLocation.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks/ContextProfiling.embeddedframework",
+					"$(PROJECT_DIR)/gimbalFrameworks",
+					"$(PROJECT_DIR)/gimbalFrameworks/NetworkServices.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gimbalDemo/gimbalDemo-Prefix.pch";
 				INFOPLIST_FILE = "gimbalDemo/gimbalDemo-Info.plist";
@@ -456,6 +686,7 @@
 				39A725AE1994438C00F23812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A725AF1994438C00F23812 /* Build configuration list for PBXNativeTarget "gimbalDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +695,7 @@
 				39A725B11994438C00F23812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
