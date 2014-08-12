@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "DataSnapClient/Client.h"
 
 #import <ContextCore/QLContextCoreConnector.h>
 
@@ -16,11 +17,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    [DataSnapClient setupWithProjectID:@"Gimble Test Application"];
+    
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
         // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
+        [[DataSnapClient sharedClient] genericEvent:@{@"event": @"App loaded from notification"}];
     }
     
     QLContextCoreConnector *connector = [QLContextCoreConnector new];
@@ -48,13 +52,14 @@
     // Set icon badge number to zero
     application.applicationIconBadgeNumber = 0;
     
-    NSLog(@"App recieved notofication: %@", notification.userInfo.description);
+    // Record Event
+    if (notification.userInfo) [[DataSnapClient sharedClient] genericEvent:notification.userInfo];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == [alertView cancelButtonIndex]) {
-        NSLog(@"Alert closed: %@", alertView.message);
+//        [[DataSnapClient sharedClient] genericEvent:alertView.description];
     }
 }
 

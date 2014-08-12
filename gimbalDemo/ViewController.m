@@ -10,6 +10,7 @@
 #import <ContextLocation/QLPlaceEvent.h>
 #import <ContextLocation/QLPlace.h>
 #import <FYX/FYXTransmitter.h>
+#import "DataSnapClient/Client.h"
 
 // Get current datetime
 NSString* date() {
@@ -66,25 +67,30 @@ NSString* date() {
 {
     NSString *name = placeEvent.place.name;
     NSString *message = [NSString new];
+    NSString *direction = [NSString new];
     
     if (placeEvent.eventType == QLPlaceEventTypeAt) {
         message = [NSString stringWithFormat:@"Geofence Event %@: At %@", date(), name];
+        direction = @"Arrived";
     }
     else if (placeEvent.eventType == QLPlaceEventTypeLeft) {
         message = [NSString stringWithFormat:@"Geofence Event %@: Left %@", date(), name];
+        direction = @"Left";
     }
     
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
     // Fire in 1 second
-    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:20];
+    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
     self.localNotification.alertBody = message;
-    self.localNotification.userInfo = @{@"Event": @"Geofence Enter",
+    self.localNotification.userInfo = @{@"Event": [NSString stringWithFormat:@"Geofence %@", direction],
                                         @"Datetime": date(),
                                         @"Name": name
                                         };
     [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
+    
+    [[DataSnapClient sharedClient] beaconEvent:placeEvent eventName:[NSString stringWithFormat:@"%@ %@", direction, name]];
 }
 
 - (void)serviceStarted
@@ -100,41 +106,53 @@ NSString* date() {
     NSLog(@"%@", error);
 }
 
-//- (void)didArrive:(FYXVisit *)visit;
-//{
-//    // this will be invoked when an authorized transmitter is sighted for the first time
-//    NSString *message = [NSString stringWithFormat:@"Proximity Event: Arrived to %@", visit.transmitter.name];
-//    
-//    NSLog(@"%@", message);
-//    DeviceLog(@"%@\n", message);
-//    
-//    // Fire in 1 second
-//    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-//    self.localNotification.alertBody = message;
-//    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
-//}
-//- (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
-//{
-//    // this will be invoked when an authorized transmitter is sighted during an on-going visit
-//    if(visit.dwellTime >= 60) {
-//        NSString *message = [NSString stringWithFormat:@"Proximity Event: Sighted %@", visit.transmitter.name];
-//        NSLog(@"%@", message);
-//            DeviceLog(@"%@\n", message);
-//    }
-//}
-//- (void)didDepart:(FYXVisit *)visit;
-//{
-//    // this will be invoked when an authorized transmitter has not been sighted for some time
-//    NSString *message = [NSString stringWithFormat:@"Proximity Event: Left %@\nDwell Time %f", visit.transmitter.name, visit.dwellTime];
-//    
-//    NSLog(@"%@", message);
-//    DeviceLog(@"%@\n", message);
-//    
-//    // Fire in 1 second
-//    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-//    self.localNotification.alertBody = message;
-//    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
-//}
+- (void)didArrive:(FYXVisit *)visit;
+{
+    // this will be invoked when an authorized transmitter is sighted for the first time
+    NSString *message = [NSString stringWithFormat:@"Proximity Event: Arrived to %@", visit.transmitter.name];
+    
+    NSLog(@"%@", message);
+    DeviceLog(@"%@\n", message);
+    
+    // Fire in 1 second
+    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    self.localNotification.alertBody = message;
+    self.localNotification.userInfo = @{@"Event": [NSString stringWithFormat:@"Arrived to %@", visit.transmitter.name],
+                                        @"Datetime": date(),
+                                        @"name": visit.transmitter.name.description
+                                        };
+    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
+    
+    [[DataSnapClient sharedClient] beaconEvent:visit];
+}
+
+- (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
+{
+    // this will be invoked when an authorized transmitter is sighted during an on-going visit
+    if((NSInteger)round(visit.dwellTime) == 60) {
+        [[DataSnapClient sharedClient] beaconEvent:visit eventName:@"One minute dwell time"];
+    }
+    
+}
+
+- (void)didDepart:(FYXVisit *)visit;
+{
+    // this will be invoked when an authorized transmitter has not been sighted for some time
+    NSString *message = [NSString stringWithFormat:@"Proximity Event: Left %@\nDwell Time %f", visit.transmitter.name, visit.dwellTime];
+    
+    DeviceLog(@"%@\n", message);
+    
+    // Fire in 1 second
+    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    self.localNotification.alertBody = message;
+    self.localNotification.userInfo = @{@"Event": [NSString stringWithFormat:@"Left %@", visit.transmitter.name],
+                                        @"Datetime": date(),
+                                        @"name": visit.transmitter.name.description
+                                        };
+    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
+    
+    [[DataSnapClient sharedClient] beaconEvent:visit];
+}
 
 @end
 
