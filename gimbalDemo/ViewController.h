@@ -19,7 +19,6 @@ NSString* date();
 
 @property (nonatomic, strong) QLContextPlaceConnector *placeConnector;
 @property (nonatomic) FYXVisitManager *visitManager;
-@property (nonatomic) UILocalNotification *localNotification;
 
 @end
 

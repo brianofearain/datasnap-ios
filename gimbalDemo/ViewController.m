@@ -13,7 +13,7 @@
 #import "DataSnapClient/Client.h"
 
 // Get current datetime
-NSString* date() {
+NSString* currentDate() {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy HH:mm"];
     
@@ -23,7 +23,20 @@ NSString* date() {
     return formattedDateString;
 }
 
+NSString *currentTime() {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    
+    NSDate *date = [NSDate new];
+    
+    NSString *formattedDateString = [dateFormatter stringFromDate:date];
+    return formattedDateString;
+}
+
 @interface ViewController ()
+
+@property NSString *lastOfficeEnterTime;
+@property NSString *lastGerofence;
 
 @end
 
@@ -32,6 +45,10 @@ NSString* date() {
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    self.lastOfficeEnterTime = [NSString new];
+    self.lastGerofence = [NSString new];
+    
     return self;
 }
 
@@ -53,8 +70,7 @@ NSString* date() {
     self.visitManager.delegate = self;
     [self.visitManager start];
     
-    self.localNotification = [UILocalNotification new];
-    self.localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [self lunchReminder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,32 +81,42 @@ NSString* date() {
 
 - (void)didGetPlaceEvent:(QLPlaceEvent *)placeEvent
 {
+    // Just arrived to the office
+    if ( ([placeEvent.place.name  isEqualToString:@"Datasnap Home Office"]) && (placeEvent.eventType == QLPlaceEventTypeAt) ) {
+        [self localNotificationWithMessage:[NSString stringWithFormat:@"Hi - You arrived at %@ Time and I am a GeoFence", currentTime()]
+                                  userInfo:@{@"Event": @"Arrive to Office Geofence",
+                                             @"Datetime": currentDate(),
+                                             @"Name": placeEvent.place.name}];
+        self.lastOfficeEnterTime = currentTime();
+    }
+    
+    // Peets Coffee
+    if ( ([placeEvent.place.name isEqualToString:@"Peets Coffee - 4th & Harrison"]) && (placeEvent.eventType == QLPlaceEventTypeAt) ) {
+        [self localNotificationWithMessage:@"Hope you're just getting coffee. NO MUFFIN FOR YOU!"
+                                  userInfo:@{@"Event": @"Arrive to Peets Geofence",
+                                             @"Datetime": currentDate(),
+                                             @"Name": placeEvent.place.name}];
+    }
+    
     NSString *name = placeEvent.place.name;
     NSString *message = [NSString new];
     NSString *direction = [NSString new];
     
     if (placeEvent.eventType == QLPlaceEventTypeAt) {
-        message = [NSString stringWithFormat:@"Geofence Event %@: At %@", date(), name];
+        message = [NSString stringWithFormat:@"Geofence Event %@: At %@", currentDate(), name];
         direction = @"Arrived";
     }
     else if (placeEvent.eventType == QLPlaceEventTypeLeft) {
-        message = [NSString stringWithFormat:@"Geofence Event %@: Left %@", date(), name];
+        message = [NSString stringWithFormat:@"Geofence Event %@: Left %@", currentDate(), name];
         direction = @"Left";
     }
     
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    // Fire in 1 second
-    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    self.localNotification.alertBody = message;
-    self.localNotification.userInfo = @{@"Event": [NSString stringWithFormat:@"Geofence %@", direction],
-                                        @"Datetime": date(),
-                                        @"Name": name
-                                        };
-    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
-    
     [[DataSnapClient sharedClient] beaconEvent:placeEvent eventName:[NSString stringWithFormat:@"%@ %@", direction, name]];
+    
+    self.lastGerofence = name;
 }
 
 - (void)serviceStarted
@@ -108,31 +134,50 @@ NSString* date() {
 
 - (void)didArrive:(FYXVisit *)visit;
 {
+    // Enter Front Entrance Beacon
+    if ( [visit.transmitter.identifier isEqualToString:@"KWAW-18BEH"] ) {
+        [self localNotificationWithMessage:[[NSString alloc] initWithFormat:@"You arrived at %@. I am the Entrance Beacon. You seem bigger - I hope you can fit though the door.", currentTime()]
+                                  userInfo:@{@"Event": [NSString stringWithFormat:@"Arrived to %@", visit.transmitter.name],
+                                             @"Datetime": currentDate(),
+                                             @"name": visit.transmitter.name.description
+                                             }];
+        if( [self.lastGerofence isEqualToString:@"Peets Coffee - 4th & Harrison"] ) {
+            [self localNotificationWithMessage:[[NSString alloc] initWithFormat:@"You arrived at %@. I am the Entrance Beacon. You seem bigger - I hope you can fit though the door.", currentTime()]
+                                      userInfo:@{@"Event": [NSString stringWithFormat:@"Arrived to %@", visit.transmitter.name],
+                                                 @"Datetime": currentDate(),
+                                                 @"name": visit.transmitter.name.description
+                                                 }];
+        }
+    }
+    
+    // Hit strairs beacon
+    if ( [visit.transmitter.identifier isEqualToString:@"RN4T-K8WWG"] && (self.lastOfficeEnterTime.length > 0 ) ) {
+        [self localNotificationWithMessage:@"You just came back from Peets. That better not be a muffin in your hand"
+                                  userInfo:@{@"Event": [NSString stringWithFormat:@"Arrived to %@", visit.transmitter.name],
+                                             @"Datetime": currentDate(),
+                                             @"name": visit.transmitter.name.description
+                                             }];
+    }
+    
     // this will be invoked when an authorized transmitter is sighted for the first time
     NSString *message = [NSString stringWithFormat:@"Proximity Event: Arrived to %@", visit.transmitter.name];
     
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    // Fire in 1 second
-    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    self.localNotification.alertBody = message;
-    self.localNotification.userInfo = @{@"Event": [NSString stringWithFormat:@"Arrived to %@", visit.transmitter.name],
-                                        @"Datetime": date(),
-                                        @"name": visit.transmitter.name.description
-                                        };
-    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
-    
     [[DataSnapClient sharedClient] beaconEvent:visit];
 }
 
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
 {
-    // this will be invoked when an authorized transmitter is sighted during an on-going visit
-    if((NSInteger)round(visit.dwellTime) == 60) {
-        [[DataSnapClient sharedClient] beaconEvent:visit eventName:@"One minute dwell time"];
+    // In the kitchen for a minute
+    if( (round(visit.dwellTime) == 60) && ([visit.transmitter.identifier isEqualToString:@"YUA5-7JWW9"]) ) {
+        [self localNotificationWithMessage:@"You're in the kitchen. You're fat - stop eating trail mix"
+                                  userInfo:@{@"Event": @"Kitchen for a minute",
+                                             @"Datetime": currentDate(),
+                                             @"Name": visit.transmitter.name}];
     }
-    
+    [[DataSnapClient sharedClient] beaconEvent:visit eventName:@"Beacon sighting"];
 }
 
 - (void)didDepart:(FYXVisit *)visit;
@@ -142,16 +187,39 @@ NSString* date() {
     
     DeviceLog(@"%@\n", message);
     
-    // Fire in 1 second
-    self.localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
-    self.localNotification.alertBody = message;
-    self.localNotification.userInfo = @{@"Event": [NSString stringWithFormat:@"Left %@", visit.transmitter.name],
-                                        @"Datetime": date(),
-                                        @"name": visit.transmitter.name.description
-                                        };
-    [[UIApplication sharedApplication] scheduleLocalNotification:self.localNotification];
-    
     [[DataSnapClient sharedClient] beaconEvent:visit];
+}
+
+-(void) localNotificationWithMessage:(NSString *)message userInfo:(NSDictionary *)userInfo{
+    UILocalNotification *localNotification = [UILocalNotification new];
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    localNotification.alertBody = message;
+    localNotification.userInfo = userInfo;
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+-(void) lunchReminder {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [NSDateComponents new];
+    [components setDay: 12];
+    [components setMonth: 8];
+    [components setYear: 2014];
+    [components setHour: 12];
+    [components setMinute: 0];
+    [components setSecond: 0];
+    [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
+    NSDate *dateToFire = [calendar dateFromComponents:components];
+    
+    UILocalNotification *notification = [UILocalNotification new];
+    notification.fireDate = dateToFire;
+    notification.timeZone = [NSTimeZone localTimeZone];
+    notification.alertBody = [NSString stringWithFormat: @"I'd remind you to get lunch, but you really need to stop eating"];
+    notification.userInfo= @{@"Event": @"Lunch reminder",
+                             @"Datetime": currentDate()};
+    notification.repeatInterval= kCFCalendarUnitDay;
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification] ;
+
 }
 
 @end
