@@ -114,7 +114,7 @@ NSString *currentTime() {
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] beaconEvent:placeEvent eventName:[NSString stringWithFormat:@"%@ %@", direction, name]];
+    [[DataSnapClient sharedClient] locationEvent:placeEvent details:@{@"name": [NSString stringWithFormat:@"%@ %@", direction, name]}];
     
     self.lastGerofence = name;
 }
@@ -165,7 +165,7 @@ NSString *currentTime() {
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] beaconEvent:visit];
+    [[DataSnapClient sharedClient] locationEvent:visit];
 }
 
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
@@ -177,7 +177,7 @@ NSString *currentTime() {
                                              @"Datetime": currentDate(),
                                              @"Name": visit.transmitter.name}];
     }
-    [[DataSnapClient sharedClient] beaconEvent:visit eventName:@"Beacon sighting"];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"name": @"Beacon sighting", @"rssi":RSSI}];
 }
 
 - (void)didDepart:(FYXVisit *)visit;
@@ -187,7 +187,7 @@ NSString *currentTime() {
     
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] beaconEvent:visit];
+    [[DataSnapClient sharedClient] locationEvent:visit];
 }
 
 -(void) localNotificationWithMessage:(NSString *)message userInfo:(NSDictionary *)userInfo{
