@@ -177,7 +177,7 @@ NSString *currentTime() {
                                              @"Datetime": currentDate(),
                                              @"Name": visit.transmitter.name}];
     }
-    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"name": @"Beacon sighting", @"rssi":RSSI}];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"rssi":RSSI}];
 }
 
 - (void)didDepart:(FYXVisit *)visit;
@@ -196,6 +196,7 @@ NSString *currentTime() {
     localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
     localNotification.alertBody = message;
     localNotification.userInfo = userInfo;
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
