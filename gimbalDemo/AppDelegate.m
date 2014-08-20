@@ -17,8 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [DataSnapClient setupWithProjectID:@"Gimble Test Application" url:@"http://indegestor-mongoS3Dev.elasticbeanstalk.com/from_sdk"];
-//    [DataSnapClient setupWithProjectID:@"Gimble Test Application" url:@"http://10.0.0.5:3000/from_sdk"];
+//    [DataSnapClient setupWithProjectID:@"Gimble Test Application" url:@"http://indegestor-mongoS3Dev.elasticbeanstalk.com/from_sdk"];
+    [DataSnapClient setupWithProjectID:@"Gimble Test Application" url:@"http://10.0.0.5:3000/from_sdk"];
 
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];

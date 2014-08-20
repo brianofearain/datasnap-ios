@@ -165,7 +165,7 @@ NSString *currentTime() {
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] locationEvent:visit];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"event_type": @"beacon_arrive"}];
 }
 
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
@@ -187,7 +187,7 @@ NSString *currentTime() {
     
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] locationEvent:visit];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"event_type": @"beacon_depart"}];
 }
 
 -(void) localNotificationWithMessage:(NSString *)message userInfo:(NSDictionary *)userInfo{
