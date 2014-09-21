@@ -17,8 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [DataSnapClient setupWithProjectID:@"Gimble Test Application" url:@"https://api-events-staging.datasnap.io/v1.0/events"];
-//    [DataSnapClient setupWithProjectID:@"Gimble Test Application" url:@"http://10.0.0.5:3000/from_sdk"];
+    [DataSnapClient setupWithOrganizationID:@"3HRhnUtmtXnT1UHQHClAcP"
+                                     APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
+                                  APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
 
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
