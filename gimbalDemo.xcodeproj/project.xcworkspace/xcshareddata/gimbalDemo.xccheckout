@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F8C265C5-9EB1-4A85-97EB-DDD8A4FEDB7F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>gimbalDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>71D95374E2475983308DF9EEBC221FBF3F76D933</key>
+		<string>https://github.com/datasnap-io/Gimbal-Demo.git</string>
+		<key>C76D1AC01F0942DEA7228A5CCC85F38698DDC3D9</key>
+		<string>https://github.com/datasnap-io/iOS-SDK.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>gimbalDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>71D95374E2475983308DF9EEBC221FBF3F76D933</key>
+		<string>../..</string>
+		<key>C76D1AC01F0942DEA7228A5CCC85F38698DDC3D9</key>
+		<string>../..iOS-SDK/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/datasnap-io/Gimbal-Demo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>71D95374E2475983308DF9EEBC221FBF3F76D933</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>71D95374E2475983308DF9EEBC221FBF3F76D933</string>
+			<key>IDESourceControlWCCName</key>
+			<string>gimbalDemo</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C76D1AC01F0942DEA7228A5CCC85F38698DDC3D9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-SDK</string>
+		</dict>
+	</array>
+</dict>
+</plist>
