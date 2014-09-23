@@ -22,7 +22,7 @@
 		<key>71D95374E2475983308DF9EEBC221FBF3F76D933</key>
 		<string>../..</string>
 		<key>C76D1AC01F0942DEA7228A5CCC85F38698DDC3D9</key>
-		<string>../..iOS-SDK/</string>
+		<string>../..iOS-SDK</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/datasnap-io/Gimbal-Demo.git</string>
@@ -46,7 +46,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>C76D1AC01F0942DEA7228A5CCC85F38698DDC3D9</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iOS-SDK</string>
+			<string>gimbalDemoiOS-SDK</string>
 		</dict>
 	</array>
 </dict>

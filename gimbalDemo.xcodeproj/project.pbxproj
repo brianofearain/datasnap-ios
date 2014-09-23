@@ -15,7 +15,7 @@
 		393F9EF619D096E000603A02 /* rules.txt in Resources */ = {isa = PBXBuildFile; fileRef = 393F9EEC19D096E000603A02 /* rules.txt */; };
 		393F9EF719D096E000603A02 /* FYX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393F9EED19D096E000603A02 /* FYX.framework */; };
 		393F9EF819D096E000603A02 /* NetworkServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393F9EEF19D096E000603A02 /* NetworkServices.framework */; };
-		393F9F3819D09FFB00603A02 /* DataSnapClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393F9F3719D09FFB00603A02 /* DataSnapClient.framework */; };
+		3981F26B19D0FDD00070C50C /* DataSnapClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3981F26A19D0FDD00070C50C /* DataSnapClient.framework */; };
 		39A407331995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png in Resources */ = {isa = PBXBuildFile; fileRef = 39A4072F1995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png */; };
 		39A4074419994DE6003EF46F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A4074319994DE6003EF46F /* CoreTelephony.framework */; };
 		39A4074619994DF8003EF46F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A4074519994DF8003EF46F /* AdSupport.framework */; };
@@ -61,7 +61,7 @@
 		393F9EEC19D096E000603A02 /* rules.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rules.txt; sourceTree = "<group>"; };
 		393F9EED19D096E000603A02 /* FYX.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FYX.framework; path = Frameworks/FYX.framework; sourceTree = "<group>"; };
 		393F9EEF19D096E000603A02 /* NetworkServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NetworkServices.framework; sourceTree = "<group>"; };
-		393F9F3719D09FFB00603A02 /* DataSnapClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSnapClient.framework; path = Frameworks/DataSnapClient.framework; sourceTree = "<group>"; };
+		3981F26A19D0FDD00070C50C /* DataSnapClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DataSnapClient.framework; path = Frameworks/DataSnapClient.framework; sourceTree = "<group>"; };
 		39A4072F1995874C003EF46F /* DS-iOS7_AppIcons_120 x 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DS-iOS7_AppIcons_120 x 120.png"; sourceTree = "<group>"; };
 		39A4074319994DE6003EF46F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		39A4074519994DF8003EF46F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -105,7 +105,7 @@
 				393F9EF719D096E000603A02 /* FYX.framework in Frameworks */,
 				393F9EF219D096E000603A02 /* ContextCore.framework in Frameworks */,
 				393F9EF519D096E000603A02 /* ContextProfiling.framework in Frameworks */,
-				393F9F3819D09FFB00603A02 /* DataSnapClient.framework in Frameworks */,
+				3981F26B19D0FDD00070C50C /* DataSnapClient.framework in Frameworks */,
 				39A725BD199443DC00F23812 /* Security.framework in Frameworks */,
 				39A725BB199443D600F23812 /* MapKit.framework in Frameworks */,
 				39A725B9199443D000F23812 /* libz.dylib in Frameworks */,
@@ -250,7 +250,7 @@
 		39A7257C1994438C00F23812 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				393F9F3719D09FFB00603A02 /* DataSnapClient.framework */,
+				3981F26A19D0FDD00070C50C /* DataSnapClient.framework */,
 				393F9EDF19D096E000603A02 /* Common.embeddedframework */,
 				393F9EE219D096E000603A02 /* ContextCore.embeddedframework */,
 				393F9EE519D096E000603A02 /* ContextLocation.embeddedframework */,
