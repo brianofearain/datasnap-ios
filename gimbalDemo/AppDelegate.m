@@ -17,9 +17,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [DataSnapClient setupWithOrganizationID:@"3HRhnUtmtXnT1UHQHClAcP"
-                                     APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
-                                  APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
+    [DataSnapClient setupWithOrganizationID:@"2qM5ckFqzFCcCIdY7xYhBc"
+                                     APIKey:@"5Z0TKJ8GLZOR40IU4CBOEH78B"
+                                  APISecret:@"PDGIbwW25CbUkRSIp/OOB+WniDDudG/Pu+jfjzAEfwQ"];
+    
+    //staging - ALL of these IDs are ok to keep in source, they are just demo app keys.
+    //[DataSnapClient setupWithOrganizationID:@"3HRhnUtmtXnT1UHQHClAcP"
+    //                                 APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
+    //                              APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
 
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
