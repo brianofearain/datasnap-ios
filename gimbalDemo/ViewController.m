@@ -104,11 +104,11 @@ NSString *currentTime() {
     
     if (placeEvent.eventType == QLPlaceEventTypeAt) {
         message = [NSString stringWithFormat:@"Geofence Event %@: At %@", currentDate(), name];
-        direction = @"Arrived";
+        direction = @"arrive";
     }
     else if (placeEvent.eventType == QLPlaceEventTypeLeft) {
         message = [NSString stringWithFormat:@"Geofence Event %@: Left %@", currentDate(), name];
-        direction = @"Left";
+        direction = @"depart";
     }
     
     NSLog(@"%@", message);
