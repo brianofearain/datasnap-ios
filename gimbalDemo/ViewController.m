@@ -37,6 +37,7 @@ NSString *currentTime() {
 
 @property NSString *lastOfficeEnterTime;
 @property NSString *lastGerofence;
+@property NSMutableString *garsString;
 
 @end
 
@@ -55,6 +56,9 @@ NSString *currentTime() {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.garsString = [NSMutableString new];
+    [self.garsString setString:@""];
 	
     // Gimbal Geofence Set-up
     self.placeConnector = [[QLContextPlaceConnector alloc] init];
@@ -77,6 +81,11 @@ NSString *currentTime() {
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)textFieldReturn:(id)sender {
+    [self.garsString setString:self.GarsTextField.text];
+    [sender resignFirstResponder];
 }
 
 - (void)didGetPlaceEvent:(QLPlaceEvent *)placeEvent
@@ -114,7 +123,8 @@ NSString *currentTime() {
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] locationEvent:placeEvent details:@{@"name": [NSString stringWithFormat:@"%@ %@", direction, name]}];
+    [[DataSnapClient sharedClient] locationEvent:placeEvent details:@{@"name": [NSString stringWithFormat:@"%@ %@", direction, name],
+                                                                      @"gar_tag": self.garsString}];
     
     self.lastGerofence = name;
 }
@@ -165,7 +175,8 @@ NSString *currentTime() {
     NSLog(@"%@", message);
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"event_type": @"beacon_arrive"}];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"event_type": @"beacon_arrive",
+                                                                 @"gar_tag": self.garsString}];
 }
 
 - (void)receivedSighting:(FYXVisit *)visit updateTime:(NSDate *)updateTime RSSI:(NSNumber *)RSSI;
@@ -177,7 +188,8 @@ NSString *currentTime() {
                                              @"Datetime": currentDate(),
                                              @"Name": visit.transmitter.name}];
     }
-    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"rssi":RSSI}];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"rssi":RSSI,
+                                                                 @"gar_tag": self.garsString}];
 }
 
 - (void)didDepart:(FYXVisit *)visit;
@@ -187,7 +199,8 @@ NSString *currentTime() {
     
     DeviceLog(@"%@\n", message);
     
-    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"event_type": @"beacon_depart"}];
+    [[DataSnapClient sharedClient] locationEvent:visit details:@{@"event_type": @"beacon_depart",
+                                                                 @"gar_tag": self.garsString}];
 }
 
 -(void) localNotificationWithMessage:(NSString *)message userInfo:(NSDictionary *)userInfo{

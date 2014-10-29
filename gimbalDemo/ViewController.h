@@ -17,6 +17,9 @@ NSString* date();
 
 @property IBOutlet UITextField *deviceDisplay;
 
+@property (strong, nonatomic) IBOutlet UITextField *GarsTextField;
+-(IBAction)textFieldReturn:(id)sender;
+
 @property (nonatomic, strong) QLContextPlaceConnector *placeConnector;
 @property (nonatomic) FYXVisitManager *visitManager;
 
