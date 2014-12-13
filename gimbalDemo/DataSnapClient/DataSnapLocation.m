@@ -66,9 +66,10 @@ static bool isFirstAccess = YES;
     self = [super init];
     
     locationManager = [[CLLocationManager alloc] init]; // initializing locationManager
-    
-    [locationManager requestAlwaysAuthorization];
-    
+
+    if ([locationManager respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        [locationManager requestAlwaysAuthorization];
+    }
     locationManager.delegate = self; // we set the delegate of locationManager to self.
     locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
     

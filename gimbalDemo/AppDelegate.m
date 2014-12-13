@@ -98,7 +98,6 @@ const char MyConstantKey;
         NSLog(@"no chosen");
         NSDictionary *associatedDictionary = objc_getAssociatedObject(alertView, &MyConstantKey);
         NSLog(@"associated dictionary: %@", associatedDictionary);
-        NSLog(@"associated dictionary: %@", associatedDictionary);
         [[DataSnapClient sharedClient] interactionEvent:associatedDictionary fromTap:@"communication_no"];
     }
 }
