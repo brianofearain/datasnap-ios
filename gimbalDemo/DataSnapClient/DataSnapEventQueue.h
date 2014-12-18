@@ -7,10 +7,16 @@
  */
 @property NSInteger queueLength;
 
+@property(nonatomic, strong) id anError;
+
 /**
  Create event queue
  */
-- (id)initWithSize:(NSInteger)queueLength;
+- (id)initWithSizeAndProject:(NSInteger)queueLength projectId:(NSString *)__projectID;
+
+- (id) getEventStore ;
+
+- (void)checkQueue;
 
 /**
  Record an event

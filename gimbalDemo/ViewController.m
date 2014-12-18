@@ -11,6 +11,7 @@
 #import <ContextLocation/QLPlace.h>
 #import <FYX/FYXTransmitter.h>
 #import "Client.h"
+#import "DBManager.h"
 
 // Get current datetime
 NSString* currentDate() {
@@ -38,6 +39,8 @@ NSString *currentTime() {
 @property NSString *lastOfficeEnterTime;
 @property NSString *lastGerofence;
 @property NSMutableString *garsString;
+//@property (nonatomic, strong) DBManager *dbManager;
+
 
 @end
 
@@ -69,6 +72,9 @@ NSString *currentTime() {
         appSecret:@"af1aae018b3699077dd0a29d8119d0284111ce4b3f5101db7ecd826f81afede8"
       callbackUrl:@"datasnapgimbaldemo://authcode"];
     [FYX startService:self];
+
+    // Initialize the dbManager property.
+   // self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
 
     self.visitManager = [FYXVisitManager new];
     self.visitManager.delegate = self;
@@ -273,7 +279,7 @@ NSString *currentTime() {
             @"CommunicationId": commidString,
             // in future get rule..     @"triggerid": 123465,
             @"Datetime": currentDate()};
-    notification.repeatInterval= kCFCalendarUnitDay;
+    notification.repeatInterval= kCFCalendarUnitMinute;
     [[UIApplication sharedApplication] scheduleLocalNotification:notification] ;
 
 

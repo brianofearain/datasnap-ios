@@ -1,28 +1,17 @@
-//
-//  KeenConstants.h
-//  KeenClient
-//
-//  Created by Daniel Kador on 2/12/12.
-//  Copyright (c) 2012 Keen Labs. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 
-#define kKeenSdkVersion @"3.2.20"
 
-extern NSString * const kKeenServerAddress;
-extern NSString * const kKeenApiVersion;
+extern NSString * const NameParam;
+extern NSString * const DescriptionParam;
+extern NSString * const SuccessParam;
+extern NSString * const ErrorParam;
+extern NSString * const InvalidCollectionNameError;
+extern NSString * const InvalidPropertyNameError;
+extern NSString * const InvalidPropertyValueError;
 
-extern NSString * const kKeenNameParam;
-extern NSString * const kKeenDescriptionParam;
-extern NSString * const kKeenSuccessParam;
-extern NSString * const kKeenErrorParam;
-extern NSString * const kKeenErrorCodeParam;
-extern NSString * const kKeenInvalidCollectionNameError;
-extern NSString * const kKeenInvalidPropertyNameError;
-extern NSString * const kKeenInvalidPropertyValueError;
+extern NSUInteger const MaxEventsPerCollection;
+extern NSUInteger const NumberEventsToForget;
 
-extern NSUInteger const kKeenMaxEventsPerCollection;
-extern NSUInteger const kKeenNumberEventsToForget;
-
-extern NSString * const kKeenErrorDomain;
+extern NSString * const ErrorDomain;

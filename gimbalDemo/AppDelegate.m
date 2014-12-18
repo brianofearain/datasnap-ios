@@ -22,15 +22,11 @@ const char MyConstantKey;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //staging - ALL of these IDs are ok to keep in source, they are just demo app keys.
     [DataSnapClient setupWithOrgAndProjIDs:@"3HRhnUtmtXnT1UHQHClAcP"
                                   projectId:@"3HRhnUtmtXnT1UHQHClAcP"
-                                  APIKey:@"5Z0TKJ8GLZOR40IU4CBOEH78B"
-                                  APISecret:@"PDGIbwW25CbUkRSIp/OOB+WniDDudG/Pu+jfjzAEfwQ"];
-    
-    //staging - ALL of these IDs are ok to keep in source, they are just demo app keys.
-    //[DataSnapClient setupWithOrganizationID:@"3HRhnUtmtXnT1UHQHClAcP"
-    //                                 APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
-    //                              APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
+                                     APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
+                                  APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
 
     // Handle launching from a notification
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
@@ -57,6 +53,9 @@ const char MyConstantKey;
     } failure:^(NSError *error) {
         NSLog(@"Failed to initialize gimbal %@", error);
     }];
+    [self clearNotifications];
+   // [[DataSnapClient sharedClient] clearAllEvents];
+
 
     return YES;
 }
@@ -112,6 +111,19 @@ const char MyConstantKey;
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    /*
+ Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+ If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+ */
+    /*UIBackgroundTaskIdentifier taskId = [application beginBackgroundTaskWithExpirationHandler:^(void) {
+        NSLog(@"Background task is being expired.");
+    }];
+
+    [[DataSnapClient sharedClient] uploadWithFinishedBlock:^(void) {
+        [application endBackgroundTask:taskId];
+    }];
+*/
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

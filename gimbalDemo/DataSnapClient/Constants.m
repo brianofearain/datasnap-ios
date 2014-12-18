@@ -1,33 +1,20 @@
-//
-//  KeenConstants.m
-//  KeenClient
-//
-//  Created by Daniel Kador on 2/12/12.
-//  Copyright (c) 2012 Keen Labs. All rights reserved.
-//
-
 #import "Constants.h"
 
-NSString * const kKeenServerAddress = @"https://api.keen.io";
-NSString * const kKeenApiVersion = @"3.0";
-
-// Keen API constants
-
-NSString * const kKeenNameParam = @"name";
-NSString * const kKeenDescriptionParam = @"description";
-NSString * const kKeenSuccessParam = @"success";
-NSString * const kKeenErrorParam = @"error";
-NSString * const kKeenErrorCodeParam = @"error_code";
-NSString * const kKeenInvalidCollectionNameError = @"InvalidCollectionNameError";
-NSString * const kKeenInvalidPropertyNameError = @"InvalidPropertyNameError";
-NSString * const kKeenInvalidPropertyValueError = @"InvalidPropertyValueError";
+//  API constants
+NSString * const NameParam = @"name";
+NSString * const DescriptionParam = @"description";
+NSString * const SuccessParam = @"success";
+NSString * const ErrorParam = @"error";
+NSString * const InvalidCollectionNameError = @"InvalidCollectionNameError";
+NSString * const InvalidPropertyNameError = @"InvalidPropertyNameError";
+NSString * const InvalidPropertyValueError = @"InvalidPropertyValueError";
 
 // Keen constants related to how much data we'll cache on the device before aging it out
 
 // how many events can be stored for a single collection before aging them out
-NSUInteger const kKeenMaxEventsPerCollection = 10000;
+NSUInteger const MaxEventsPerCollection = 10000;
 // how many events to drop when aging out
-NSUInteger const kKeenNumberEventsToForget = 100;
+NSUInteger const NumberEventsToForget = 100;
 
 // custom domain for NSErrors
-NSString * const kKeenErrorDomain = @"io.keen";
+NSString * const ErrorDomain = @"io.keen";

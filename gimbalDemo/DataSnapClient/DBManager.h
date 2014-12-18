@@ -1,3 +1,4 @@
+/*
 //
 //  DBManager.h
 //  SQLite3DBSample
@@ -25,3 +26,4 @@
 -(void)executeQuery:(NSString *)query;
 
 @end
+*/

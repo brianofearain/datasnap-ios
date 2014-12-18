@@ -1,3 +1,4 @@
+/*
 //
 //  DBManager.m
 //  SQLite3DBSample
@@ -188,3 +189,4 @@
 }
 
 @end
+*/
