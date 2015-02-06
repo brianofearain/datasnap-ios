@@ -4,14 +4,12 @@
 
 #import <UIKit/UIKit.h>
 
-
-NSString* date();
-
 @interface ViewController : UIViewController
 @property IBOutlet UITextField *deviceDisplay;
 
-@property (strong, nonatomic) IBOutlet UITextField *GarsTextField;
--(IBAction)textFieldReturn:(id)sender;
+@property(strong, nonatomic) IBOutlet UITextField *GarsTextField;
+
+- (IBAction)textFieldReturn:(id)sender;
 
 
 @end

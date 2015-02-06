@@ -8,10 +8,10 @@
 @interface DataSnapLocation : NSObject <CLLocationManagerDelegate>
 
 /**
- * gets singleton object.
- * @return singleton
- */
-+ (DataSnapLocation*)sharedInstance;
+* gets singleton object.
+* @return singleton
+*/
++ (DataSnapLocation *)sharedInstance;
 
 - (NSArray *)getLocation;
 

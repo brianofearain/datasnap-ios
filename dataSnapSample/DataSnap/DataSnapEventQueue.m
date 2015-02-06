@@ -8,7 +8,7 @@
 
 @implementation DataSnapEventQueue
 
-- (id)initWithSize:(NSInteger)queueLength{
+- (id)initWithSize:(NSInteger)queueLength {
     if (self = [self init]) {
         self.queueLength = queueLength;
     }
@@ -16,17 +16,17 @@
 }
 
 - (instancetype)init {
-    if(self = [super init]) {
+    if (self = [super init]) {
         self.eventQueue = [NSMutableArray new];
     }
     return self;
 }
 
-- (void)recordEvent:(NSDictionary *)details{
-    
+- (void)recordEvent:(NSDictionary *)details {
+
     // TODO hanldle generic request data (like orgID) here
     [self.eventQueue addObject:details];
-    
+
     return;
 }
 
@@ -38,7 +38,7 @@
     [self.eventQueue removeAllObjects];
 }
 
--(NSInteger)numberOfQueuedEvents {
+- (NSInteger)numberOfQueuedEvents {
     return self.eventQueue.count;
 }
 

@@ -4,6 +4,7 @@
 
 // Serialize object into JSON string
 + (NSString *)jsonStringFromObject:(NSObject *)obj;
+
 + (NSString *)jsonStringFromObject:(NSObject *)obj prettyPrint:(BOOL)pretty;
 
 + (void)nsdateToNSString:(NSMutableDictionary *)dict;
@@ -12,27 +13,37 @@
 
 // System Data
 + (NSDictionary *)getSystemData;
+
 + (NSDictionary *)getIPAddress;
+
 + (NSDictionary *)getCarrierData;
 
 /**
- Returns a string of the device IP Address
- @param preferIPv4 BOOL preferring IPv4 over IPv6
- @return NSString of the device's IP Address
- */
+Returns a string of the device IP Address
+@param preferIPv4 BOOL preferring IPv4 over IPv6
+@return NSString of the device's IP Address
+*/
 + (NSString *)getIPAddress:(BOOL)preferIPv4;
 
 /**
- Returns a dictionary containing every network address associated with the device
- @return NSDictionary
- */
+Returns a dictionary containing every network address associated with the device
+@return NSDictionary
+*/
 + (NSDictionary *)getIPAddresses;
 
-+ (NSString *) currentDate;
++ (NSString *)currentDate;
 
-+ (NSString *) transactionID;
++ (NSString *)transactionID;
 
 + (NSString *)getUUID;
+
+// from datasnapc1
+
++ (NSMutableDictionary *)map:(NSDictionary *)dictionary withMap:(NSDictionary *)map;
+
++ (NSDictionary *)dictionaryRepresentation:(NSObject *)obj;
+
++ (NSDictionary *)getUserAndDataSnapDictionaryWithOrgAndProj:(NSString *)orgID projId:(NSString *)projID;
 
 @end
 
