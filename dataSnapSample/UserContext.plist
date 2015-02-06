@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PRODUCTION_API_KEY</key>
+	<string>8357710e-5594-4ac2-b517-4ef31696acae</string>
+	<key>FEATURE_NAME</key>
+	<string>DataSnap Demo</string>
+	<key>FEATURE_DESCRIPTION</key>
+	<string></string>
+	<key>CUSTOM_OPT_IN_FLOW</key>
+	<false/>
+	<key>COMMUNNICATIONS_DISABLED</key>
+	<false/>
+</dict>
+</plist>

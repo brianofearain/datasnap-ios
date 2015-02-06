@@ -9,12 +9,22 @@
 /* Begin PBXBuildFile section */
 		F1C666531A849FD900389838 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666521A849FD900389838 /* main.m */; };
 		F1C666561A849FD900389838 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666551A849FD900389838 /* AppDelegate.m */; };
-		F1C666591A849FD900389838 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666581A849FD900389838 /* MasterViewController.m */; };
-		F1C6665C1A849FD900389838 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6665B1A849FD900389838 /* DetailViewController.m */; };
 		F1C6665F1A849FD900389838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6665D1A849FD900389838 /* Main.storyboard */; };
 		F1C666611A849FD900389838 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C666601A849FD900389838 /* Images.xcassets */; };
-		F1C666641A849FD900389838 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1C666621A849FD900389838 /* LaunchScreen.xib */; };
 		F1C666701A849FD900389838 /* dataSnapSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6666F1A849FD900389838 /* dataSnapSampleTests.m */; };
+		F1C666971A84A0EA00389838 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C666791A84A0EA00389838 /* Images.xcassets */; };
+		F1C666981A84A0EA00389838 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6667B1A84A0EA00389838 /* ViewController.m */; };
+		F1C666991A84A0EA00389838 /* dataSnapSample-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1C6667C1A84A0EA00389838 /* dataSnapSample-Info.plist */; };
+		F1C6669A1A84A0EA00389838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6667E1A84A0EA00389838 /* Main.storyboard */; };
+		F1C6669B1A84A0EA00389838 /* DataSnapC1.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666831A84A0EA00389838 /* DataSnapC1.m */; };
+		F1C6669C1A84A0EA00389838 /* DataSnapClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666861A84A0EA00389838 /* DataSnapClient.m */; };
+		F1C6669D1A84A0EA00389838 /* DataSnapEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666881A84A0EA00389838 /* DataSnapEventQueue.m */; };
+		F1C6669E1A84A0EA00389838 /* DataSnapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6668C1A84A0EA00389838 /* DataSnapLocation.m */; };
+		F1C6669F1A84A0EA00389838 /* DataSnapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6668E1A84A0EA00389838 /* DataSnapRequest.m */; };
+		F1C666A01A84A0EA00389838 /* GlobalUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666901A84A0EA00389838 /* GlobalUtilities.m */; };
+		F1C666A11A84A0EA00389838 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1C666911A84A0EA00389838 /* Info.plist */; };
+		F1C666A21A84A0EA00389838 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1C666941A84A0EA00389838 /* InfoPlist.strings */; };
+		F1C666A31A84A0EA00389838 /* UserContext.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1C666961A84A0EA00389838 /* UserContext.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,20 +39,38 @@
 
 /* Begin PBXFileReference section */
 		F1C6664D1A849FD900389838 /* dataSnapSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dataSnapSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1C666511A849FD900389838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1C666521A849FD900389838 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F1C666541A849FD900389838 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1C666551A849FD900389838 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1C666571A849FD900389838 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		F1C666581A849FD900389838 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		F1C6665A1A849FD900389838 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		F1C6665B1A849FD900389838 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F1C6665E1A849FD900389838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1C666601A849FD900389838 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		F1C666631A849FD900389838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F1C666691A849FD900389838 /* dataSnapSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dataSnapSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C6666E1A849FD900389838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1C6666F1A849FD900389838 /* dataSnapSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dataSnapSampleTests.m; sourceTree = "<group>"; };
+		F1C666791A84A0EA00389838 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F1C6667A1A84A0EA00389838 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F1C6667B1A84A0EA00389838 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F1C6667C1A84A0EA00389838 /* dataSnapSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "dataSnapSample-Info.plist"; sourceTree = "<group>"; };
+		F1C6667F1A84A0EA00389838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		F1C666811A84A0EA00389838 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		F1C666821A84A0EA00389838 /* DataSnapC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapC1.h; sourceTree = "<group>"; };
+		F1C666831A84A0EA00389838 /* DataSnapC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapC1.m; sourceTree = "<group>"; };
+		F1C666841A84A0EA00389838 /* DataSnapClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataSnapClient-Prefix.pch"; sourceTree = "<group>"; };
+		F1C666851A84A0EA00389838 /* DataSnapClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapClient.h; sourceTree = "<group>"; };
+		F1C666861A84A0EA00389838 /* DataSnapClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapClient.m; sourceTree = "<group>"; };
+		F1C666871A84A0EA00389838 /* DataSnapEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapEventQueue.h; sourceTree = "<group>"; };
+		F1C666881A84A0EA00389838 /* DataSnapEventQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapEventQueue.m; sourceTree = "<group>"; };
+		F1C6668A1A84A0EA00389838 /* DataSnapIntegrations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapIntegrations.h; sourceTree = "<group>"; };
+		F1C6668B1A84A0EA00389838 /* DataSnapLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapLocation.h; sourceTree = "<group>"; };
+		F1C6668C1A84A0EA00389838 /* DataSnapLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapLocation.m; sourceTree = "<group>"; };
+		F1C6668D1A84A0EA00389838 /* DataSnapRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapRequest.h; sourceTree = "<group>"; };
+		F1C6668E1A84A0EA00389838 /* DataSnapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapRequest.m; sourceTree = "<group>"; };
+		F1C6668F1A84A0EA00389838 /* GlobalUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalUtilities.h; sourceTree = "<group>"; };
+		F1C666901A84A0EA00389838 /* GlobalUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalUtilities.m; sourceTree = "<group>"; };
+		F1C666911A84A0EA00389838 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DataSnap/Info.plist; sourceTree = "<group>"; };
+		F1C666921A84A0EA00389838 /* dataSnapSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dataSnapSample-Prefix.pch"; sourceTree = "<group>"; };
+		F1C666951A84A0EA00389838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		F1C666961A84A0EA00389838 /* UserContext.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserContext.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +112,20 @@
 		F1C6664F1A849FD900389838 /* dataSnapSample */ = {
 			isa = PBXGroup;
 			children = (
+				F1C666791A84A0EA00389838 /* Images.xcassets */,
+				F1C6667A1A84A0EA00389838 /* ViewController.h */,
+				F1C6667B1A84A0EA00389838 /* ViewController.m */,
+				F1C6667C1A84A0EA00389838 /* dataSnapSample-Info.plist */,
+				F1C6667D1A84A0EA00389838 /* Base.lproj */,
+				F1C666801A84A0EA00389838 /* DataSnap */,
+				F1C666921A84A0EA00389838 /* dataSnapSample-Prefix.pch */,
+				F1C666911A84A0EA00389838 /* Info.plist */,
+				F1C666931A84A0EA00389838 /* en.lproj */,
+				F1C666961A84A0EA00389838 /* UserContext.plist */,
 				F1C666541A849FD900389838 /* AppDelegate.h */,
 				F1C666551A849FD900389838 /* AppDelegate.m */,
-				F1C666571A849FD900389838 /* MasterViewController.h */,
-				F1C666581A849FD900389838 /* MasterViewController.m */,
-				F1C6665A1A849FD900389838 /* DetailViewController.h */,
-				F1C6665B1A849FD900389838 /* DetailViewController.m */,
 				F1C6665D1A849FD900389838 /* Main.storyboard */,
 				F1C666601A849FD900389838 /* Images.xcassets */,
-				F1C666621A849FD900389838 /* LaunchScreen.xib */,
 				F1C666501A849FD900389838 /* Supporting Files */,
 			);
 			path = dataSnapSample;
@@ -101,7 +134,6 @@
 		F1C666501A849FD900389838 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F1C666511A849FD900389838 /* Info.plist */,
 				F1C666521A849FD900389838 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -122,6 +154,44 @@
 				F1C6666E1A849FD900389838 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1C6667D1A84A0EA00389838 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F1C6667E1A84A0EA00389838 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		F1C666801A84A0EA00389838 /* DataSnap */ = {
+			isa = PBXGroup;
+			children = (
+				F1C666811A84A0EA00389838 /* Client.h */,
+				F1C666821A84A0EA00389838 /* DataSnapC1.h */,
+				F1C666831A84A0EA00389838 /* DataSnapC1.m */,
+				F1C666841A84A0EA00389838 /* DataSnapClient-Prefix.pch */,
+				F1C666851A84A0EA00389838 /* DataSnapClient.h */,
+				F1C666861A84A0EA00389838 /* DataSnapClient.m */,
+				F1C666871A84A0EA00389838 /* DataSnapEventQueue.h */,
+				F1C666881A84A0EA00389838 /* DataSnapEventQueue.m */,
+				F1C6668A1A84A0EA00389838 /* DataSnapIntegrations.h */,
+				F1C6668B1A84A0EA00389838 /* DataSnapLocation.h */,
+				F1C6668C1A84A0EA00389838 /* DataSnapLocation.m */,
+				F1C6668D1A84A0EA00389838 /* DataSnapRequest.h */,
+				F1C6668E1A84A0EA00389838 /* DataSnapRequest.m */,
+				F1C6668F1A84A0EA00389838 /* GlobalUtilities.h */,
+				F1C666901A84A0EA00389838 /* GlobalUtilities.m */,
+			);
+			path = DataSnap;
+			sourceTree = "<group>";
+		};
+		F1C666931A84A0EA00389838 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F1C666941A84A0EA00389838 /* InfoPlist.strings */,
+			);
+			path = en.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +275,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C6665F1A849FD900389838 /* Main.storyboard in Resources */,
-				F1C666641A849FD900389838 /* LaunchScreen.xib in Resources */,
+				F1C666A21A84A0EA00389838 /* InfoPlist.strings in Resources */,
+				F1C666971A84A0EA00389838 /* Images.xcassets in Resources */,
+				F1C6669A1A84A0EA00389838 /* Main.storyboard in Resources */,
+				F1C666991A84A0EA00389838 /* dataSnapSample-Info.plist in Resources */,
 				F1C666611A849FD900389838 /* Images.xcassets in Resources */,
+				F1C666A31A84A0EA00389838 /* UserContext.plist in Resources */,
+				F1C666A11A84A0EA00389838 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,10 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C666A01A84A0EA00389838 /* GlobalUtilities.m in Sources */,
 				F1C666561A849FD900389838 /* AppDelegate.m in Sources */,
-				F1C666591A849FD900389838 /* MasterViewController.m in Sources */,
+				F1C6669B1A84A0EA00389838 /* DataSnapC1.m in Sources */,
+				F1C6669D1A84A0EA00389838 /* DataSnapEventQueue.m in Sources */,
 				F1C666531A849FD900389838 /* main.m in Sources */,
-				F1C6665C1A849FD900389838 /* DetailViewController.m in Sources */,
+				F1C6669E1A84A0EA00389838 /* DataSnapLocation.m in Sources */,
+				F1C6669C1A84A0EA00389838 /* DataSnapClient.m in Sources */,
+				F1C666981A84A0EA00389838 /* ViewController.m in Sources */,
+				F1C6669F1A84A0EA00389838 /* DataSnapRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,12 +338,20 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F1C666621A849FD900389838 /* LaunchScreen.xib */ = {
+		F1C6667E1A84A0EA00389838 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1C666631A849FD900389838 /* Base */,
+				F1C6667F1A84A0EA00389838 /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F1C666941A84A0EA00389838 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1C666951A84A0EA00389838 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -349,7 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = dataSnapSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/dataSnapSample/dataSnapSample-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -359,7 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = dataSnapSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/dataSnapSample/dataSnapSample-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
