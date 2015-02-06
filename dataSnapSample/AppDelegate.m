@@ -15,13 +15,10 @@ const char MyConstantKey;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Please put your details in here...
     [DataSnapClient setupWithOrgAndProjIDs:@"3HRhnUtmtXnT1UHQHClAcP"
                                   projectId:@"3HRhnUtmtXnT1UHQHClAcP"
                                      APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
                                   APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
-
-    NSLog(@"Started app...");
 
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
@@ -58,7 +55,6 @@ const char MyConstantKey;
     }
     else {
         NSLog(@"local notification and application not active");
-      // [[DataSnapClient sharedClient] interactionEvent:notification.userInfo fromTap:@"ds_communication_open" status:@"background"];
     }
     // Set icon badge number to zero
     application.applicationIconBadgeNumber = 0;
@@ -69,7 +65,6 @@ const char MyConstantKey;
         NSLog(@"yes chosen");
         NSDictionary *associatedDictionary = objc_getAssociatedObject(alertView, &MyConstantKey);
         NSLog(@"associated dictionary: %@", associatedDictionary);
-     //   [[DataSnapClient sharedClient] interactionEvent:associatedDictionary fromTap:@"ds_communication_open" status:@"foreground"];
     }
     else if (buttonIndex == 1) {
         NSLog(@"no chosen");

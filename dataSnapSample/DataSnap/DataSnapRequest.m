@@ -18,20 +18,20 @@
     return self;
 }
 
-+ (void)sendEvents:(NSObject *)events initWithURL:(NSString *)url authString:(NSString *)authString {
-    
+- (void)sendEvents:(NSObject *)events {
+
     NSString *json = [GlobalUtilities jsonStringFromObject:events];
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://private-f349e-brian30.apiary-mock.com/notes"]];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.url]];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    // [urlRequest setValue:[NSString stringWithFormat: @"Basic %@", authString] forHTTPHeaderField:@"Authorization"];
+    [urlRequest setValue:[NSString stringWithFormat: @"Basic %@", self.authString] forHTTPHeaderField:@"Authorization"];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
 
-    NSLog(json);
     NSHTTPURLResponse *res = nil;
     NSError *err = nil;
     [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&res error:&err];
     NSInteger responseCode = [res statusCode];
+
     if((responseCode/100) != 2){
         NSLog(@"Error sending request to %@. Response code: %d.\n", urlRequest.URL, (int) responseCode, json);
         if(err){

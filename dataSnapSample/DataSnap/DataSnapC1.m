@@ -103,16 +103,13 @@
     dataDict[@"user"] = [NSMutableDictionary new];
     dataDict[@"user"][@"id"] = [NSMutableDictionary new];
     dataDict[@"user"][@"id"][@"datasnap_app_user_id"] = [GlobalUtilities getUUID];
-    dataDict[@"custom"] = [NSMutableDictionary new];
-    dataDict[@"custom2"] = [NSMutableDictionary new];
+
     
     [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         if ([[self getDataSnapDeviceKeys] containsObject:key]) {
             dataDict[@"datasnap"][@"device"][key] = data[key];
         } else if ([[self getUserIdentificationKeys] containsObject:key]) {
             dataDict[@"user"][@"id"][key] = data[key];
-        } else {
-            dataDict[@"custom"][key] = data[key];
         }
     }];
     

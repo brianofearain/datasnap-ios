@@ -54,13 +54,6 @@ extern const char MyConstantKey;
 - (void)beaconSightingEvent:(NSMutableDictionary *)eventDetails ;
 - (void)beaconDepartEvent:(NSMutableDictionary *)eventDetails ;
 
-
-
-
-+ (NSDictionary *)mimicGeofenceArrive;
-+ (NSDictionary *)mimicBeaconSighting;
-
-
 /**
  Return client for project
  */
