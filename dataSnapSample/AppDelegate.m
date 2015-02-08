@@ -3,69 +3,17 @@
 //  Datasnap Generic Sample
 
 #import "AppDelegate.h"
-#import "DataSnapClient.h"
-#import <objc/runtime.h>
-
-
-const char MyConstantKey;
+#import "DSIOClient.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [DataSnapClient setupWithOrgAndProjIDs:@"3HRhnUtmtXnT1UHQHClAcP"
-                                 projectId:@"3HRhnUtmtXnT1UHQHClAcP"
-                                    APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"
-                                 APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
-
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
-    }
-    else // iOS 7 or earlier
-    {
-        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
-        [application registerForRemoteNotificationTypes:myTypes];
-    }
-    // Handle launching from a notification
-    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (locationNotification) {
-        // Set icon badge number to zero
-        application.applicationIconBadgeNumber = 0;
-        [[DataSnapClient sharedClient] genericEvent:@{@"event" : @"App loaded from notification"}];
-    }
+   [DSIOClient setupWithOrgAndProjIDs:@"3HRhnUtmtXnT1UHQHClAcP" projectId:@"3HRhnUtmtXnT1UHQHClAcP"
+               APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"  APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
     return YES;
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    UIApplicationState state = [application applicationState];
-    if (state == UIApplicationStateActive) {
-        NSLog(@"local notification and application is active");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Datasnap Event"
-                                                        message:notification.alertBody
-                                                       delegate:self
-                                              cancelButtonTitle:@"Yes"
-                                              otherButtonTitles:@"No", nil];
-        [alert show];
-        objc_setAssociatedObject(alert, &MyConstantKey, notification.userInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-    else {
-        NSLog(@"local notification and application not active");
-    }
-    // Set icon badge number to zero
-    application.applicationIconBadgeNumber = 0;
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        NSLog(@"yes chosen");
-        NSDictionary *associatedDictionary = objc_getAssociatedObject(alertView, &MyConstantKey);
-        NSLog(@"associated dictionary: %@", associatedDictionary);
-    }
-    else if (buttonIndex == 1) {
-        NSLog(@"no chosen");
-        NSDictionary *associatedDictionary = objc_getAssociatedObject(alertView, &MyConstantKey);
-        NSLog(@"associated dictionary: %@", associatedDictionary);
-        //  [[DataSnapClient sharedClient] interactionEvent:associatedDictionary fromTap:@"ds_communication_open" status:@"foreground"];
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

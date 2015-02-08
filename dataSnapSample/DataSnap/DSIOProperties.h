@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface DataSnapProperties : NSObject
+@interface DSIOProperties : NSObject
 
 // Serialize object into JSON string
 + (NSString *)jsonStringFromObject:(NSObject *)obj;

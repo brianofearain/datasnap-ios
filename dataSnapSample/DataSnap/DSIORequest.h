@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface DataSnapRequest : NSObject
+@interface DSIORequest : NSObject
 
 - (id)initWithURL:(NSString *)url authString:(NSString *)authString;
 - (void)sendEvents:(NSObject *)events;

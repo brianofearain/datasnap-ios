@@ -4,9 +4,9 @@
 
 
 #import "ViewController.h"
-#import "DataSnapClient.h"
-#import "DataSnapPropertiesSampleData.h"
-#import "DataSnapProperties.h"
+#import "DSIOClient.h"
+#import "DSIOPropertiesSampleData.h"
+#import "DSIOProperties.h"
 
 
 // Get current datetime
@@ -35,9 +35,11 @@ NSString *currentDate() {
   //  [self buildGenericEvent];
   //  [self buildGeofenceDepartEvent];
   //  [self buildCommunicationEvent];
+
     [NSTimer scheduledTimerWithTimeInterval:5.0 target:self
-                                                      selector:@selector(callEvents:) userInfo:nil repeats:YES];
+                                   selector:@selector(callEvents:) userInfo:nil repeats:YES];
 }
+
 
 // mimic events - for sample scenario without an event listener configured
 - (void)callEvents:(NSTimer *)t {
@@ -47,29 +49,22 @@ NSString *currentDate() {
    // [self buildCommunicationEvent];
 }
 
-- (void)logToDeviceAndConsole:(NSString *)eventName {
+- (void)logToDeviceAndConsole:(NSString *)eventName{
     NSString *eventAndTime = [NSString stringWithFormat:eventName, currentDate()];
     NSString *message = [NSString stringWithFormat:@"%@\n", eventAndTime];
     NSLog(message);
     DeviceLog(message);
 }
 
-- (void)buildBeaconSightingEvent {
+- (void)buildBeaconSightingEvent{
     NSMutableDictionary *eventData = [self getSampleBeaconSightingEvent];
-    [[DataSnapClient sharedClient] beaconSightingEvent:eventData];
+    [[DSIOClient sharedClient] beaconSightingEvent:eventData];
     [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
 }
 
 - (NSMutableDictionary *) getSampleBeaconSightingEvent{
-    NSArray *beaconSightingSampleValues =  [DataSnapPropertiesSampleData getBeaconSightingEventSampleValues] ;
-    NSArray *beaconSightingEventKeys =  [DataSnapProperties getBeaconSightingEventKeys] ;
-    NSLog(@"beaconSightingSampleValuesssss");
-    NSLog(@"%@",beaconSightingSampleValues);
-   // NSLog(beaconSightingSampleValues);
-    NSLog(@"beaconSightingSampleKeysssssss");
-
-    NSLog(@"%@",beaconSightingEventKeys);
-
+    NSArray *beaconSightingSampleValues =  [DSIOPropertiesSampleData getBeaconSightingEventSampleValues] ;
+    NSArray *beaconSightingEventKeys =  [DSIOProperties getBeaconSightingEventKeys] ;
     NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues forKeys:beaconSightingEventKeys];
     return beaconSighting;
 }
@@ -90,7 +85,7 @@ NSString *currentDate() {
 
     [eventData addEntriesFromDictionary:@{@"event_type" : @"geofence_depart", @"geofence" : geoFence, @"organization_ids" : @"3HRhnUtmtXnT1UHQHClAcP"
     , @"project_ids" : @"3HRhnUtmtXnT1UHQHClAcP", @"place" : place, @"user" : user}];
-    [[DataSnapClient sharedClient] geofenceArriveEvent:eventData];
+    [[DSIOClient sharedClient] geofenceArriveEvent:eventData];
     [self logToDeviceAndConsole:@"Datasnap Geofence Depart Event %@"];
     return eventData;
 }
@@ -108,7 +103,7 @@ NSString *currentDate() {
 }
 
 - (NSMutableDictionary *)buildUser {
-    NSMutableDictionary *user =  [[DataSnapClient sharedClient] getUserInfo];
+    NSMutableDictionary *user =  [[DSIOClient sharedClient] getUserInfo];
     return user;
 }
 
@@ -140,7 +135,7 @@ NSString *currentDate() {
     genericProperties[@"dwell_time"] = @"12";
     genericProperties[@"custom property"] = @"my custom property";
     [eventData addEntriesFromDictionary:@{@"event_type" : @"generic_event", @"generic" : genericProperties}];
-    [[DataSnapClient sharedClient] genericEvent:eventData];
+    [[DSIOClient sharedClient] genericEvent:eventData];
     [self logToDeviceAndConsole:@"Datasnap Generic Event %@"];
     return eventData;
 }

@@ -2,11 +2,11 @@
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
 
-#import "DataSnapPropertiesSampleData.h"
-#import "DataSnapProperties.h"
+#import "DSIOPropertiesSampleData.h"
+#import "DSIOProperties.h"
 
 
-@implementation DataSnapPropertiesSampleData
+@implementation DSIOPropertiesSampleData
 
 
 + (NSArray *) getBeaconSampleValues{
@@ -38,7 +38,7 @@
 
 + (NSMutableDictionary *) getBeaconSampleData{
     NSArray *beaconSampleValues =  [self getBeaconSampleValues] ;
-    NSArray *beaconKeys =  [DataSnapProperties getBeaconProperties] ;
+    NSArray *beaconKeys =  [DSIOProperties getBeaconProperties] ;
     NSMutableDictionary *beacon = [NSMutableDictionary dictionaryWithObjects:beaconSampleValues
                                                            forKeys:beaconKeys];
     return beacon;
@@ -46,7 +46,7 @@
 
 + (NSMutableDictionary *) getSampleBeaconSightingEvent{
     NSArray *beaconSightingSampleValues =  [self getBeaconSightingEventSampleValues] ;
-    NSArray *beaconSightingEventKeys =  [DataSnapProperties getBeaconSightingEventKeys] ;
+    NSArray *beaconSightingEventKeys =  [DSIOProperties getBeaconSightingEventKeys] ;
     NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues
                                                                      forKeys:beaconSightingEventKeys];
     return beaconSighting;

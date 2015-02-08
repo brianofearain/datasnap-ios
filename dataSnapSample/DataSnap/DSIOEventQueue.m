@@ -1,12 +1,12 @@
-#import "DataSnapEventQueue.h"
+#import "DSIOEventQueue.h"
 
-@interface DataSnapEventQueue ()
+@interface DSIOEventQueue ()
 
 @property NSMutableArray *eventQueue;
 
 @end
 
-@implementation DataSnapEventQueue
+@implementation DSIOEventQueue
 
 - (id)initWithSize:(NSInteger)queueLength {
     if (self = [self init]) {

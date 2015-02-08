@@ -1,15 +1,17 @@
-#import "DataSnapProperties.h"
-#import "DataSnapLocation.h"
-#import "DataSnapClient.h"
-#import "DataSnapEventQueue.h"
-#import "DataSnapRequest.h"
+#import "DSIOProperties.h"
+#import "DSIOClient.h"
+#import "DSIOEventQueue.h"
+#import "DSIORequest.h"
+#import "DSIOLocationMgr.h"
 #import <objc/runtime.h>
 
-static DataSnapClient *__sharedInstance = nil;
+static DSIOClient *__sharedInstance = nil;
 const int eventQueueSize = 5;
 static NSString *__organizationID;
 static NSString *__projectID;
 static BOOL loggingEnabled = NO;
+
+
 
 @implementation NSMutableDictionary (AddNotNil)
 
@@ -21,18 +23,20 @@ static BOOL loggingEnabled = NO;
 
 @end
 
-@interface DataSnapClient ()
+@interface DSIOClient ()
 
-@property DataSnapEventQueue *eventQueue;
-@property DataSnapRequest *requestHandler;
+
+@property DSIOEventQueue *eventQueue;
+@property DSIORequest *requestHandler;
+@property DSIOLocationMgr *locationMgr;
 
 - (void)checkQueue;
 
 @end
 
-@implementation DataSnapClient
+@implementation DSIOClient
 
-+ (void)setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret {
++ (void) setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret {
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         __sharedInstance = [[self alloc] initWithOrgandProjIDs:organizationID projectId:(NSString *) projectID APIKey:APIKey APISecret:APISecret];
@@ -45,11 +49,14 @@ static BOOL loggingEnabled = NO;
         __projectID = projectID;
         NSData *authData = [[NSString stringWithFormat:@"%@:%@", APIKey, APISecret] dataUsingEncoding:NSUTF8StringEncoding];
         NSString *authString = [authData base64EncodedStringWithOptions:0];
-        self.eventQueue = [[DataSnapEventQueue alloc] initWithSize:eventQueueSize];
-        self.requestHandler = [[DataSnapRequest alloc] initWithURL:@"https://api-events.datasnap.io/v1.0/events" authString:authString];
+        self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventQueueSize];
+        self.requestHandler = [[DSIORequest alloc] initWithURL:@"https://api-events.datasnap.io/v1.0/events" authString:authString];
+        self.locationMgr = [[DSIOLocationMgr alloc] init];
+
     }
     return self;
 }
+
 
 - (void)flushEvents {
     [self.eventQueue flushQueue];
@@ -57,7 +64,7 @@ static BOOL loggingEnabled = NO;
 
 
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DataSnapProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
     [eventDetails addEntriesFromDictionary:eventData];
     [self.eventQueue recordEvent:eventDetails];
     [self checkQueue];
@@ -85,20 +92,20 @@ static BOOL loggingEnabled = NO;
 
                   // split getUserAndDataSnapDictionaryWithOrgAndProj
 - (NSMutableDictionary *)getUserInfo {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DataSnapProperties getUserInfo:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserInfo:__organizationID projId:__projectID]];
     return eventData;
 }
 
 - (NSMutableDictionary *)getDataSnap {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DataSnapProperties getDataSnap:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getDataSnap:__organizationID projId:__projectID]];
     return eventData;
 }
 
 - (void)eventHandler:(NSMutableDictionary *)eventDetails {
     // over-instantiating here - need to just fill these objects once
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-    DataSnapLocation *locationService = [DataSnapLocation sharedInstance];
-    NSMutableDictionary *global_position = [locationService getGeoPosition];
+    NSMutableDictionary *global_position = [self.locationMgr getGeoPosition];
+    NSLog(@"%@", [global_position description]);
     eventData[@"global_position"] = global_position[@"global_position"];
     [eventDetails addEntriesFromDictionary:eventData];
     [self.eventQueue recordEvent:eventDetails];

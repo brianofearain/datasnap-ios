@@ -1,14 +1,14 @@
-#import "DataSnapRequest.h"
-#import "DataSnapProperties.h"
+#import "DSIORequest.h"
+#import "DSIOProperties.h"
 
-@interface DataSnapRequest ()
+@interface DSIORequest ()
 
 @property NSString *url;
 @property NSString *authString;
 
 @end
 
-@implementation DataSnapRequest
+@implementation DSIORequest
 
 - (id)initWithURL:(NSString *)url authString:(NSString *)authString {
     if (self = [super init]) {
@@ -20,7 +20,7 @@
 
 - (void)sendEvents:(NSObject *)events {
     NSLog(@"here ............123");
-    NSString *json = [DataSnapProperties jsonStringFromObject:events];
+    NSString *json = [DSIOProperties jsonStringFromObject:events];
     // pointing here for time being
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://private-98bba-datasnapio.apiary-mock.com/v1.0/events/?api_key=$E9NZuB6A91e2J03PKA2g7wx0629czel8&data=$%2520WERF%2520&redirect=$http%3A%2F%2Fwww.apple.com"]];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

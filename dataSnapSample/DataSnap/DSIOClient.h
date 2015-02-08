@@ -1,6 +1,6 @@
 #import <CoreLocation/CoreLocation.h>
 
-@interface DataSnapClient : NSObject
+@interface DSIOClient : NSObject
 
 + (void)setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret;
 
@@ -21,6 +21,7 @@ Enable/disable logging.
 - (NSMutableDictionary *)getUserInfo ;
 - (NSMutableDictionary *)getDataSnap;
 
+
 + (id)sharedClient;
 
 @end
@@ -28,4 +29,4 @@ Enable/disable logging.
 /**
 DSLog macro
 */
-#define DSLog(message, ...)if([DataSnapClient isLoggingEnabled]) NSLog(message, ##__VA_ARGS__)
+#define DSLog(message, ...)if([DSIOClient isLoggingEnabled]) NSLog(message, ##__VA_ARGS__)

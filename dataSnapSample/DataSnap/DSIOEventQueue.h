@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface DataSnapEventQueue : NSObject
+@interface DSIOEventQueue : NSObject
 
 /**
 Number of events to batch

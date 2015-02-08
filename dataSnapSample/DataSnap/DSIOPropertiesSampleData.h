@@ -6,12 +6,18 @@
 #import <Foundation/Foundation.h>
 
 
-@interface DataSnapPropertiesSampleData : NSObject
+@interface DSIOPropertiesSampleData : NSObject
 
+// Beacon
 + (NSArray *) getBeaconSampleValues;
-+ (NSArray *)getBeaconSightingEventSampleValues ;
 + (NSMutableDictionary *) getBeaconSampleData;
+
+// Beacon Sighting Event
++ (NSArray *)getBeaconSightingEventSampleValues ;
 + (NSMutableDictionary *) getSampleBeaconSightingEvent;
 
+// Geofence
++ (NSArray *) getGeofenceSampleValues;
++ (NSMutableDictionary *) getGeofenceSampleData;
 
 @end
