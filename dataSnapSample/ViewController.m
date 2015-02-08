@@ -5,6 +5,7 @@
 
 #import "ViewController.h"
 #import "DataSnapClient.h"
+#import "DataSnapPropertiesSampleData.h"
 
 
 // Get current datetime
@@ -28,50 +29,43 @@ NSString *currentDate() {
 
 - (void)viewDidLoad {
     [self buildBeaconSightingEvent];
-    [self buildGenericEvent];
-    [self buildGeofenceDepartEvent];
-    [self buildCommunicationEvent];
+
+   // commenting out for now - just getting layout right for beacon events first then will reuse the format on all the other events
+  //  [self buildGenericEvent];
+  //  [self buildGeofenceDepartEvent];
+  //  [self buildCommunicationEvent];
     [NSTimer scheduledTimerWithTimeInterval:5.0 target:self
                                                       selector:@selector(callEvents:) userInfo:nil repeats:YES];
 }
 
-// mimic events
+// mimic events - for sample scenario without an event listener configured
 - (void)callEvents:(NSTimer *)t {
     [self buildBeaconSightingEvent];
-    [self buildGenericEvent];
-    [self buildGeofenceDepartEvent];
-    [self buildCommunicationEvent];
+   // [self buildGenericEvent];
+   // [self buildGeofenceDepartEvent];
+   // [self buildCommunicationEvent];
 }
 
 - (void)logToDeviceAndConsole:(NSString *)eventName {
-    NSString *message1 = [NSString stringWithFormat:eventName, currentDate()];
-    NSString *message = [NSString stringWithFormat:@"%@\n", message1];
+    NSString *eventAndTime = [NSString stringWithFormat:eventName, currentDate()];
+    NSString *message = [NSString stringWithFormat:@"%@\n", eventAndTime];
     NSLog(message);
     DeviceLog(message);
 }
 
 - (void)buildBeaconSightingEvent {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-
-    NSMutableDictionary *beacon = @{@"identifier": @"SHDG-28AHD",
-            @"ble_uuid": @"ble_uuid",
-            @"ble_vendor_uuid": @"ble_vendor_uuid",
-            @"ble_vendor_id": @"ble_vendor_id",
-            @"name": @"Front Entrance 1",
-            @"is_mobile": @"false",
-            @"start_time": @"2014-08-22 14:48:02 +0000",
-            @"location" : @{@"coordinates" : @"32.89545949009762, -117.19463284827117"},
-            @"visibility": @"Private",
-            @"battery_level": @"50",
-            @"temperature": @"68.32",
-            @"hardware": @"HardwaretypeoftheBeacon"};
-
-    [eventData addEntriesFromDictionary:@{@"event_type" : @"beacon_sighting" ,@"organization_ids": @"3HRhnUtmtXnT1UHQHClAcP",
-     @"project_ids": @"3HRhnUtmtXnT1UHQHClAcP", @"beacon" : beacon}];
-
+    NSMutableDictionary *eventData = [self getSampleBeaconSightingEvent];
     [[DataSnapClient sharedClient] beaconSightingEvent:eventData];
     [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
 }
+
+- (NSMutableDictionary *) getSampleBeaconSightingEvent{
+    NSArray *beaconSightingSampleValues =  [DataSnapPropertiesSampleData getBeaconSightingEventSampleValues] ;
+    NSArray *beaconSightingEventKeys =  [DataSnapPropertiesSampleData getBeaconSightingEventSampleValues] ;
+    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues forKeys:beaconSightingEventKeys];
+    return beaconSighting;
+}
+
 
 - (NSMutableDictionary *)buildGeofenceDepartEvent {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
@@ -110,8 +104,6 @@ NSString *currentDate() {
     return user;
 }
 
-
-
 - (NSMutableDictionary *)buildPlace {
     NSMutableDictionary *place = [[NSMutableDictionary alloc] init];
         NSMutableDictionary *placeDictionnary = [[NSMutableDictionary alloc] init];
@@ -130,12 +122,9 @@ NSString *currentDate() {
                        @"zip": @"94107",
                        @"zip4": @"3422"};
 
-
     return addressDictionary;
 
 }
-
-
 
 - (NSMutableDictionary *)buildGenericEvent {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];

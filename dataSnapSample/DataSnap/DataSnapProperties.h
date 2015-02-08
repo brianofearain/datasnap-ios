@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface GlobalUtilities : NSObject
+@interface DataSnapProperties : NSObject
 
 // Serialize object into JSON string
 + (NSString *)jsonStringFromObject:(NSObject *)obj;
@@ -27,6 +27,11 @@
 + (NSDictionary *)dictionaryRepresentation:(NSObject *)obj;
 + (void)nsDateToNSString:(NSMutableDictionary *)dict;
 + (void)addIDFA:(NSString *)idfa;
+
+
++ (NSArray *)getBeaconProperties;
++ (NSArray *)getBeaconSightingEventKeys;
+
 
 @end
 

@@ -1,4 +1,4 @@
-#import "GlobalUtilities.h"
+#import "DataSnapProperties.h"
 #import "DataSnapLocation.h"
 #import "DataSnapClient.h"
 #import "DataSnapEventQueue.h"
@@ -57,7 +57,7 @@ static BOOL loggingEnabled = NO;
 
 
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DataSnapProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
     [eventDetails addEntriesFromDictionary:eventData];
     [self.eventQueue recordEvent:eventDetails];
     [self checkQueue];
@@ -85,12 +85,12 @@ static BOOL loggingEnabled = NO;
 
                   // split getUserAndDataSnapDictionaryWithOrgAndProj
 - (NSMutableDictionary *)getUserInfo {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getUserInfo:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DataSnapProperties getUserInfo:__organizationID projId:__projectID]];
     return eventData;
 }
 
 - (NSMutableDictionary *)getDataSnap {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getDataSnap:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DataSnapProperties getDataSnap:__organizationID projId:__projectID]];
     return eventData;
 }
 
