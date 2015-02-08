@@ -23,8 +23,7 @@
              @"Private",
              @"50",
              @"68.32",
-            @"68.32",
-            @"HardwaretypeoftheBeacon"
+             @"HardwaretypeoftheBeacon",
              @"sports, women",
              @"womens, golf, shoes",
 ];}
@@ -47,7 +46,7 @@
 
 + (NSMutableDictionary *) getSampleBeaconSightingEvent{
     NSArray *beaconSightingSampleValues =  [self getBeaconSightingEventSampleValues] ;
-    NSArray *beaconSightingEventKeys =  [self getBeaconSightingEventSampleValues] ;
+    NSArray *beaconSightingEventKeys =  [DataSnapProperties getBeaconSightingEventKeys] ;
     NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues
                                                                      forKeys:beaconSightingEventKeys];
     return beaconSighting;

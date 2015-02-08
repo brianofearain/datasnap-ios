@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="805fbf9c-f93e-470d-ae43-dbe6e8cfa38f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dataSnapSample/DataSnap/GlobalUtilities.h" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/dataSnapSample/DataSnap/GlobalUtilities.m" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapClient.m" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapClient.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.m" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m" afterPath="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataSnapSample/ViewController.m" afterPath="$PROJECT_DIR$/dataSnapSample/ViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataSnapSample.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/dataSnapSample.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dataSnapSample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +28,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="DataSnapClient.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapClient.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33261338" vertical-offset="1361" max-vertical-offset="2115">
+              <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataSnapSample/ViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1678" max-vertical-offset="2235">
-              <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2355">
+              <caret line="64" column="86" selection-start-line="64" selection-start-column="86" selection-end-line="64" selection-end-column="86" />
               <folding>
                 <element signature="e#90#116#0" expanded="true" />
               </folding>
@@ -46,34 +52,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataSnapPropertiesSampleData.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DataSnapPropertiesSampleData.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7786561" vertical-offset="178" max-vertical-offset="930">
-              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="915">
+              <caret line="48" column="89" selection-start-line="48" selection-start-column="89" selection-end-line="48" selection-end-column="89" />
               <folding>
                 <element signature="e#62#102#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewController.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataSnapSample/ViewController.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataSnapSample/AppDelegate.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1455">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -91,11 +77,31 @@
       <file leaf-file-name="DataSnapProperties.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.185185" vertical-offset="4750" max-vertical-offset="5970">
-              <caret line="344" column="21" selection-start-line="344" selection-start-column="21" selection-end-line="344" selection-end-column="21" />
+            <state vertical-scroll-proportion="-7.5925927" vertical-offset="5015" max-vertical-offset="5970">
+              <caret line="348" column="24" selection-start-line="348" selection-start-column="13" selection-end-line="348" selection-end-column="39" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataSnapLocation.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapLocation.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1078" max-vertical-offset="1545">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataSnapLocation.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapLocation.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,21 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataSnapEventQueue.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapEventQueue.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="297" max-vertical-offset="720">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DataSnapRequest.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="780">
-              <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="780">
+              <caret line="22" column="40" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="40" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -135,7 +131,7 @@
       <file leaf-file-name="main.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataSnapSample/main.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="270">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
@@ -165,10 +161,10 @@
         <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/GlobalUtilities.h" />
         <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.h" />
         <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.h" />
-        <option value="$PROJECT_DIR$/dataSnapSample/ViewController.m" />
-        <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m" />
         <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.m" />
+        <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m" />
         <option value="$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.m" />
+        <option value="$PROJECT_DIR$/dataSnapSample/ViewController.m" />
       </list>
     </option>
   </component>
@@ -176,10 +172,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1813" />
+    <option name="x" value="-1844" />
     <option name="y" value="59" />
-    <option name="width" value="1837" />
-    <option name="height" value="690" />
+    <option name="width" value="1868" />
+    <option name="height" value="794" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -322,23 +318,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1813" y="59" width="1837" height="690" extended-state="0" />
+    <frame x="-1844" y="59" width="1868" height="794" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30100334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3005698" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32996634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23244147" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23219374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17511013" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.53010035" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17217109" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34188035" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -577,37 +573,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapLocation.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1018" max-vertical-offset="1545">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapLocation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapClient.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="130" max-vertical-offset="540">
           <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapClient.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1055" max-vertical-offset="2115">
-          <caret line="86" column="7" selection-start-line="86" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -643,30 +613,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/ViewController.m">
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapLocation.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1678" max-vertical-offset="2235">
-          <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-          <folding>
-            <element signature="e#90#116#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="1018" max-vertical-offset="1545">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="780">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.h">
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapLocation.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -679,30 +637,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.m">
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.185185" vertical-offset="4750" max-vertical-offset="5970">
-          <caret line="344" column="21" selection-start-line="344" selection-start-column="21" selection-end-line="344" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataSnapSample/main.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapPropertiesSampleData.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7786561" vertical-offset="178" max-vertical-offset="930">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="241" max-vertical-offset="915">
+          <caret line="48" column="89" selection-start-line="48" selection-start-column="89" selection-end-line="48" selection-end-column="89" />
           <folding>
             <element signature="e#62#102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/main.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="69" max-vertical-offset="270">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapRequest.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="780">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapProperties.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5925927" vertical-offset="5015" max-vertical-offset="5970">
+          <caret line="348" column="24" selection-start-line="348" selection-start-column="13" selection-end-line="348" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/ViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2355">
+          <caret line="64" column="86" selection-start-line="64" selection-start-column="86" selection-end-line="64" selection-end-column="86" />
+          <folding>
+            <element signature="e#90#116#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataSnapSample/DataSnap/DataSnapClient.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33261338" vertical-offset="1361" max-vertical-offset="2115">
+          <caret line="101" column="36" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

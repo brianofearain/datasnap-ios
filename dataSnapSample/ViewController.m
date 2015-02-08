@@ -6,6 +6,7 @@
 #import "ViewController.h"
 #import "DataSnapClient.h"
 #import "DataSnapPropertiesSampleData.h"
+#import "DataSnapProperties.h"
 
 
 // Get current datetime
@@ -61,7 +62,14 @@ NSString *currentDate() {
 
 - (NSMutableDictionary *) getSampleBeaconSightingEvent{
     NSArray *beaconSightingSampleValues =  [DataSnapPropertiesSampleData getBeaconSightingEventSampleValues] ;
-    NSArray *beaconSightingEventKeys =  [DataSnapPropertiesSampleData getBeaconSightingEventSampleValues] ;
+    NSArray *beaconSightingEventKeys =  [DataSnapProperties getBeaconSightingEventKeys] ;
+    NSLog(@"beaconSightingSampleValuesssss");
+    NSLog(@"%@",beaconSightingSampleValues);
+   // NSLog(beaconSightingSampleValues);
+    NSLog(@"beaconSightingSampleKeysssssss");
+
+    NSLog(@"%@",beaconSightingEventKeys);
+
     NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues forKeys:beaconSightingEventKeys];
     return beaconSighting;
 }
