@@ -23,15 +23,9 @@ static BOOL loggingEnabled = NO;
 
 @interface DataSnapClient ()
 
-/**
-Private properties and methods
-*/
-// DataSnapEventQueue instance
 @property DataSnapEventQueue *eventQueue;
 @property DataSnapRequest *requestHandler;
 
-// create a config object for logging and stuff
-// Check if queue is full
 - (void)checkQueue;
 
 @end
@@ -61,6 +55,7 @@ Private properties and methods
     [self.eventQueue flushQueue];
 }
 
+
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
     [eventDetails addEntriesFromDictionary:eventData];
@@ -78,21 +73,30 @@ Private properties and methods
 
 - (void)geofenceArriveEvent:(NSMutableDictionary *)eventDetails {
     [self eventHandler:eventDetails];
-
 }
 
 - (void)geofenceDepartEvent:(NSMutableDictionary *)eventDetails {
     [self eventHandler:eventDetails];
-
 }
 
 - (void)communicationEvent:(NSMutableDictionary *)eventDetails {
     [self eventHandler:eventDetails];
 }
 
+                  // split getUserAndDataSnapDictionaryWithOrgAndProj
+- (NSMutableDictionary *)getUserInfo {
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getUserInfo:__organizationID projId:__projectID]];
+    return eventData;
+}
+
+- (NSMutableDictionary *)getDataSnap {
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getDataSnap:__organizationID projId:__projectID]];
+    return eventData;
+}
+
 - (void)eventHandler:(NSMutableDictionary *)eventDetails {
     // over-instantiating here - need to just fill these objects once
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[GlobalUtilities getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
     DataSnapLocation *locationService = [DataSnapLocation sharedInstance];
     NSMutableDictionary *global_position = [locationService getGeoPosition];
     eventData[@"global_position"] = global_position[@"global_position"];
@@ -114,7 +118,6 @@ Private properties and methods
     }
 }
 
-
 + (void)disableLogging {
     loggingEnabled = NO;
 }
@@ -125,15 +128,6 @@ Private properties and methods
 
 + (BOOL)isLoggingEnabled {
     return loggingEnabled;
-}
-
-
-#pragma mark - DataSnapUID
-
-+ (NSString *)getDataSnapID {
-
-
-    return @"TODO: this";
 }
 
 

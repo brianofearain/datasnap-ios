@@ -31,7 +31,7 @@ NSString *currentDate() {
     [self buildGenericEvent];
     [self buildGeofenceDepartEvent];
     [self buildCommunicationEvent];
-    NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self
+    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self
                                                       selector:@selector(callEvents:) userInfo:nil repeats:YES];
 }
 
@@ -43,27 +43,39 @@ NSString *currentDate() {
     [self buildCommunicationEvent];
 }
 
+- (void)logToDeviceAndConsole:(NSString *)eventName {
+    NSString *message1 = [NSString stringWithFormat:eventName, currentDate()];
+    NSString *message = [NSString stringWithFormat:@"%@\n", message1];
+    NSLog(message);
+    DeviceLog(message);
+}
 
-- (NSMutableDictionary *)buildBeaconSightingEvent {
+- (void)buildBeaconSightingEvent {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *beacon = [[NSMutableDictionary alloc] init];
-    beacon[@"hardware"] = @"Hardwarevendor1";
-    beacon[@"last_update_time"] = @"xxa-12312-1231-asads";
-    beacon[@"start_time"] = @"2014-02-05 23:51:58 +0000";
-    beacon[@"identifier"] = @"POLUBPQ-Z42X2";
-    beacon[@"rssi"] = @"-95";
-    beacon[@"temperature"] = @"63";
-    [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
-    [eventData addEntriesFromDictionary:@{@"event_type" : @"beacon_sighting", @"beacon" : beacon}];
+
+    NSMutableDictionary *beacon = @{@"identifier": @"SHDG-28AHD",
+            @"ble_uuid": @"ble_uuid",
+            @"ble_vendor_uuid": @"ble_vendor_uuid",
+            @"ble_vendor_id": @"ble_vendor_id",
+            @"name": @"Front Entrance 1",
+            @"is_mobile": @"false",
+            @"start_time": @"2014-08-22 14:48:02 +0000",
+            @"location" : @{@"coordinates" : @"32.89545949009762, -117.19463284827117"},
+            @"visibility": @"Private",
+            @"battery_level": @"50",
+            @"temperature": @"68.32",
+            @"hardware": @"HardwaretypeoftheBeacon"};
+
+    [eventData addEntriesFromDictionary:@{@"event_type" : @"beacon_sighting" ,@"organization_ids": @"3HRhnUtmtXnT1UHQHClAcP",
+     @"project_ids": @"3HRhnUtmtXnT1UHQHClAcP", @"beacon" : beacon}];
 
     [[DataSnapClient sharedClient] beaconSightingEvent:eventData];
-    return eventData;
+    [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
 }
 
 - (NSMutableDictionary *)buildGeofenceDepartEvent {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
 
-    // this is a geofence circle- see sending data for more examples...
     NSMutableDictionary *geoFence = [[NSMutableDictionary alloc] init];
     geoFence = @{@"time" : currentDate(),
             @"identifier" : @"12qAS5",
@@ -71,7 +83,11 @@ NSString *currentDate() {
             @"geofence_circle" : @{@"radius" : @"34",
                     @"location" : @{@"coordinates" : @"123, 456"}}};
 
-    [eventData addEntriesFromDictionary:@{@"event_type" : @"geofence_depart", @"geofence" : geoFence}];
+    NSMutableDictionary *place = [self buildPlace];
+    NSMutableDictionary *user = [self buildUser];
+
+    [eventData addEntriesFromDictionary:@{@"event_type" : @"geofence_depart", @"geofence" : geoFence, @"organization_ids" : @"3HRhnUtmtXnT1UHQHClAcP"
+    , @"project_ids" : @"3HRhnUtmtXnT1UHQHClAcP", @"place" : place, @"user" : user}];
     [[DataSnapClient sharedClient] geofenceArriveEvent:eventData];
     [self logToDeviceAndConsole:@"Datasnap Geofence Depart Event %@"];
     return eventData;
@@ -84,18 +100,41 @@ NSString *currentDate() {
     NSMutableDictionary *communication = [[NSMutableDictionary alloc] init];
     [communication addEntriesFromDictionary:@{@"communication_id" : @"uniquecommunication12", @"content" : content}];
     [eventData addEntriesFromDictionary:@{@"event_type" : @"ds_communication_sent", @"communication" : communication}];
-
     [self logToDeviceAndConsole:@"Datasnap Communication Event %@"];
     return eventData;
 
 }
 
-- (void)logToDeviceAndConsole:(NSString *)eventName {
-    NSString *message1 = [NSString stringWithFormat: eventName,currentDate()];
-    NSString *message =[NSString stringWithFormat: @"%@\n", message1];
-    NSLog(message);
-    DeviceLog(message);
+- (NSMutableDictionary *)buildUser {
+    NSMutableDictionary *user =  [[DataSnapClient sharedClient] getUserInfo];
+    return user;
 }
+
+
+
+- (NSMutableDictionary *)buildPlace {
+    NSMutableDictionary *place = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *placeDictionnary = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *beaconDictionnary = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *addressDictionary = [[NSMutableDictionary alloc] init];
+        placeDictionnary =  @{@"id" : @"placeid",
+            @"name" : @"Mission District"};
+
+    beaconDictionnary =  @{@"beaconid" : @"ASD-3e4",
+            @"beaconid" : @"HYF-3e4"};
+
+    addressDictionary =  @{@"address1": @"103 west street",
+                       @"address2": @"",
+                       @"city": @"San Francisco",
+                       @"region": @"CA",
+                       @"zip": @"94107",
+                       @"zip4": @"3422"};
+
+
+    return addressDictionary;
+
+}
+
 
 
 - (NSMutableDictionary *)buildGenericEvent {

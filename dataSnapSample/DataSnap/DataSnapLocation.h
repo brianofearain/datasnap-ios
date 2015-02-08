@@ -7,18 +7,10 @@
 
 @interface DataSnapLocation : NSObject <CLLocationManagerDelegate>
 
-/**
-* gets singleton object.
-* @return singleton
-*/
 + (DataSnapLocation *)sharedInstance;
-
-- (NSArray *)getLocation;
-
-- (NSArray *)getLocationCoordinates:(NSNumber *)latitude longitude:(NSNumber *)longitude;
-
-- (NSArray *)getLocationCoordinatesFromDouble:(double)latitude longitude:(double)longitude;
-
 - (NSMutableDictionary *)getGeoPosition;
+- (NSArray *)getLocation;
+- (NSArray *)getLocationCoordinates:(NSNumber *)latitude longitude:(NSNumber *)longitude;
+- (NSArray *)getLocationCoordinatesFromDouble:(double)latitude longitude:(double)longitude;
 
 @end

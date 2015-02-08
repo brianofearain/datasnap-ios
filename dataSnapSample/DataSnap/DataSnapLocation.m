@@ -20,7 +20,6 @@ static bool isFirstAccess = YES;
         isFirstAccess = NO;
         SINGLETON = [[super allocWithZone:NULL] init];
     });
-
     return SINGLETON;
 }
 
@@ -54,17 +53,13 @@ static bool isFirstAccess = YES;
         [self doesNotRecognizeSelector:_cmd];
     }
     self = [super init];
-
-    locationManager = [[CLLocationManager alloc] init]; // initializing locationManager
-
+    locationManager = [[CLLocationManager alloc] init];
     if ([locationManager respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         [locationManager requestAlwaysAuthorization];
     }
-    locationManager.delegate = self; // we set the delegate of locationManager to self.
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest; // setting the accuracy
-
-    [locationManager startUpdatingLocation];  //requesting location updates
-
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
     return self;
 }
 
@@ -72,7 +67,6 @@ static bool isFirstAccess = YES;
 - (NSArray *)getLocation {
     NSArray *coords = @[[NSString stringWithFormat:@"%f", locationManager.location.coordinate.latitude],
             [NSString stringWithFormat:@"%f", locationManager.location.coordinate.longitude]];
-
     return coords;
 }
 
@@ -88,7 +82,6 @@ static bool isFirstAccess = YES;
 
 
 - (NSMutableDictionary *)getGeoPosition {
-
     NSMutableDictionary *dataDict = [NSMutableDictionary new];
     dataDict[@"global_position"] = [NSMutableDictionary new];
     dataDict[@"global_position"][@"altitude"] = [NSNumber numberWithDouble:locationManager.location.altitude];
@@ -96,11 +89,8 @@ static bool isFirstAccess = YES;
     dataDict[@"global_position"][@"course"] = [NSNumber numberWithDouble:locationManager.location.course];
     dataDict[@"global_position"][@"speed"] = [NSNumber numberWithDouble:locationManager.location.speed];
     dataDict[@"datasnap"][@"location"] = [NSMutableDictionary new];
-
     NSArray *coords = [[DataSnapLocation sharedInstance] getLocation];
-
     dataDict[@"global_position"][@"location"] = @{@"coordinates" : coords};
-
     return dataDict;
 }
 

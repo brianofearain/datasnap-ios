@@ -4,46 +4,29 @@
 
 // Serialize object into JSON string
 + (NSString *)jsonStringFromObject:(NSObject *)obj;
-
 + (NSString *)jsonStringFromObject:(NSObject *)obj prettyPrint:(BOOL)pretty;
-
-+ (void)nsdateToNSString:(NSMutableDictionary *)dict;
-
-+ (void)addIDFA:(NSString *)idfa;
 
 // System Data
 + (NSDictionary *)getSystemData;
-
 + (NSDictionary *)getIPAddress;
-
 + (NSDictionary *)getCarrierData;
-
-/**
-Returns a string of the device IP Address
-@param preferIPv4 BOOL preferring IPv4 over IPv6
-@return NSString of the device's IP Address
-*/
 + (NSString *)getIPAddress:(BOOL)preferIPv4;
 
-/**
-Returns a dictionary containing every network address associated with the device
-@return NSDictionary
-*/
+//every network address associated with the device
 + (NSDictionary *)getIPAddresses;
-
 + (NSString *)currentDate;
-
 + (NSString *)transactionID;
-
 + (NSString *)getUUID;
 
-// from datasnapc1
+// this function should be removed as it has been split into the two beneath
++ (NSDictionary *)getUserAndDataSnapDictionaryWithOrgAndProj:(NSString *)orgID projId:(NSString *)projID;
++ (NSDictionary *)getUserInfo:(NSString *)orgID projId:(NSString *)projID;
++ (NSDictionary *)getDataSnap:(NSString *)orgID projId:(NSString *)projID;
 
 + (NSMutableDictionary *)map:(NSDictionary *)dictionary withMap:(NSDictionary *)map;
-
 + (NSDictionary *)dictionaryRepresentation:(NSObject *)obj;
-
-+ (NSDictionary *)getUserAndDataSnapDictionaryWithOrgAndProj:(NSString *)orgID projId:(NSString *)projID;
++ (void)nsDateToNSString:(NSMutableDictionary *)dict;
++ (void)addIDFA:(NSString *)idfa;
 
 @end
 

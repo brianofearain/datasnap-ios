@@ -10,18 +10,17 @@
 		F1C666531A849FD900389838 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666521A849FD900389838 /* main.m */; };
 		F1C666561A849FD900389838 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666551A849FD900389838 /* AppDelegate.m */; };
 		F1C6665F1A849FD900389838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6665D1A849FD900389838 /* Main.storyboard */; };
-		F1C666611A849FD900389838 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C666601A849FD900389838 /* Images.xcassets */; };
 		F1C666701A849FD900389838 /* dataSnapSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6666F1A849FD900389838 /* dataSnapSampleTests.m */; };
-		F1C666971A84A0EA00389838 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C666791A84A0EA00389838 /* Images.xcassets */; };
 		F1C666981A84A0EA00389838 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6667B1A84A0EA00389838 /* ViewController.m */; };
-		F1C6669A1A84A0EA00389838 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C6667E1A84A0EA00389838 /* Main.storyboard */; };
 		F1C6669C1A84A0EA00389838 /* DataSnapClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666861A84A0EA00389838 /* DataSnapClient.m */; };
 		F1C6669D1A84A0EA00389838 /* DataSnapEventQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666881A84A0EA00389838 /* DataSnapEventQueue.m */; };
 		F1C6669E1A84A0EA00389838 /* DataSnapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6668C1A84A0EA00389838 /* DataSnapLocation.m */; };
 		F1C6669F1A84A0EA00389838 /* DataSnapRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C6668E1A84A0EA00389838 /* DataSnapRequest.m */; };
 		F1C666A01A84A0EA00389838 /* GlobalUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666901A84A0EA00389838 /* GlobalUtilities.m */; };
-		F1C666A21A84A0EA00389838 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1C666941A84A0EA00389838 /* InfoPlist.strings */; };
-		F1C666A31A84A0EA00389838 /* UserContext.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1C666961A84A0EA00389838 /* UserContext.plist */; };
+		F2B0A168D5EBE2254B22DAAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B0AF3BBA2BE9D526AEC062 /* Images.xcassets */; };
+		F2B0A5EC800668D435484C35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B0AC1923FC454DED1A394F /* Main.storyboard */; };
+		F2B0A6DF46D098D2D6BE8335 /* UserContext.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B0A9F49A8F7AE4CE8B6FBE /* UserContext.plist */; };
+		F2B0AA179FDB576CDF188DDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B0A9BA8999C7771E91436E /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,15 +39,11 @@
 		F1C666541A849FD900389838 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1C666551A849FD900389838 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F1C6665E1A849FD900389838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F1C666601A849FD900389838 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1C666691A849FD900389838 /* dataSnapSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dataSnapSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C6666E1A849FD900389838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1C6666F1A849FD900389838 /* dataSnapSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dataSnapSampleTests.m; sourceTree = "<group>"; };
-		F1C666791A84A0EA00389838 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1C6667A1A84A0EA00389838 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F1C6667B1A84A0EA00389838 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		F1C6667F1A84A0EA00389838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		F1C666841A84A0EA00389838 /* DataSnapClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataSnapClient-Prefix.pch"; sourceTree = "<group>"; };
 		F1C666851A84A0EA00389838 /* DataSnapClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapClient.h; sourceTree = "<group>"; };
 		F1C666861A84A0EA00389838 /* DataSnapClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapClient.m; sourceTree = "<group>"; };
 		F1C666871A84A0EA00389838 /* DataSnapEventQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSnapEventQueue.h; sourceTree = "<group>"; };
@@ -59,9 +54,12 @@
 		F1C6668E1A84A0EA00389838 /* DataSnapRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSnapRequest.m; sourceTree = "<group>"; };
 		F1C6668F1A84A0EA00389838 /* GlobalUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalUtilities.h; sourceTree = "<group>"; };
 		F1C666901A84A0EA00389838 /* GlobalUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalUtilities.m; sourceTree = "<group>"; };
-		F1C666921A84A0EA00389838 /* dataSnapSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dataSnapSample-Prefix.pch"; sourceTree = "<group>"; };
-		F1C666951A84A0EA00389838 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		F1C666961A84A0EA00389838 /* UserContext.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserContext.plist; sourceTree = "<group>"; };
+		F2B0A0BA9C5EDA6B56FD7F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		F2B0A4F98179B505F4AC15C1 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		F2B0A5E49ABE3894B5A2ABE1 /* dataSnapSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dataSnapSample-Prefix.pch"; sourceTree = "<group>"; };
+		F2B0A9F49A8F7AE4CE8B6FBE /* UserContext.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = UserContext.plist; sourceTree = "<group>"; };
+		F2B0AF11FC2EA86157E6B10A /* DataSnapClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataSnapClient-Prefix.pch"; path = "DataSnap/DataSnapClient-Prefix.pch"; sourceTree = "<group>"; };
+		F2B0AF3BBA2BE9D526AEC062 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,18 +101,12 @@
 		F1C6664F1A849FD900389838 /* dataSnapSample */ = {
 			isa = PBXGroup;
 			children = (
-				F1C666791A84A0EA00389838 /* Images.xcassets */,
 				F1C6667A1A84A0EA00389838 /* ViewController.h */,
 				F1C6667B1A84A0EA00389838 /* ViewController.m */,
-				F1C6667D1A84A0EA00389838 /* Base.lproj */,
 				F1C666801A84A0EA00389838 /* DataSnap */,
-				F1C666921A84A0EA00389838 /* dataSnapSample-Prefix.pch */,
-				F1C666931A84A0EA00389838 /* en.lproj */,
-				F1C666961A84A0EA00389838 /* UserContext.plist */,
 				F1C666541A849FD900389838 /* AppDelegate.h */,
 				F1C666551A849FD900389838 /* AppDelegate.m */,
 				F1C6665D1A849FD900389838 /* Main.storyboard */,
-				F1C666601A849FD900389838 /* Images.xcassets */,
 				F1C666501A849FD900389838 /* Supporting Files */,
 			);
 			path = dataSnapSample;
@@ -124,6 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				F1C666521A849FD900389838 /* main.m */,
+				F2B0A29D907F4620EFD28979 /* Base.lproj */,
+				F2B0ABA92FB77FC92DBF18F8 /* en.lproj */,
+				F2B0AF3BBA2BE9D526AEC062 /* Images.xcassets */,
+				F2B0A5E49ABE3894B5A2ABE1 /* dataSnapSample-Prefix.pch */,
+				F2B0AF11FC2EA86157E6B10A /* DataSnapClient-Prefix.pch */,
+				F2B0A9F49A8F7AE4CE8B6FBE /* UserContext.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,18 +143,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F1C6667D1A84A0EA00389838 /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				F1C6667E1A84A0EA00389838 /* Main.storyboard */,
-			);
-			path = Base.lproj;
-			sourceTree = "<group>";
-		};
 		F1C666801A84A0EA00389838 /* DataSnap */ = {
 			isa = PBXGroup;
 			children = (
-				F1C666841A84A0EA00389838 /* DataSnapClient-Prefix.pch */,
 				F1C666851A84A0EA00389838 /* DataSnapClient.h */,
 				F1C666861A84A0EA00389838 /* DataSnapClient.m */,
 				F1C666871A84A0EA00389838 /* DataSnapEventQueue.h */,
@@ -171,10 +160,18 @@
 			path = DataSnap;
 			sourceTree = "<group>";
 		};
-		F1C666931A84A0EA00389838 /* en.lproj */ = {
+		F2B0A29D907F4620EFD28979 /* Base.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				F1C666941A84A0EA00389838 /* InfoPlist.strings */,
+				F2B0AC1923FC454DED1A394F /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		F2B0ABA92FB77FC92DBF18F8 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F2B0A9BA8999C7771E91436E /* InfoPlist.strings */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -260,11 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1C6665F1A849FD900389838 /* Main.storyboard in Resources */,
-				F1C666A21A84A0EA00389838 /* InfoPlist.strings in Resources */,
-				F1C666971A84A0EA00389838 /* Images.xcassets in Resources */,
-				F1C6669A1A84A0EA00389838 /* Main.storyboard in Resources */,
-				F1C666611A849FD900389838 /* Images.xcassets in Resources */,
-				F1C666A31A84A0EA00389838 /* UserContext.plist in Resources */,
+				F2B0A5EC800668D435484C35 /* Main.storyboard in Resources */,
+				F2B0AA179FDB576CDF188DDA /* InfoPlist.strings in Resources */,
+				F2B0A168D5EBE2254B22DAAD /* Images.xcassets in Resources */,
+				F2B0A6DF46D098D2D6BE8335 /* UserContext.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,20 +316,20 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F1C6667E1A84A0EA00389838 /* Main.storyboard */ = {
+		F2B0A9BA8999C7771E91436E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1C6667F1A84A0EA00389838 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F1C666941A84A0EA00389838 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F1C666951A84A0EA00389838 /* en */,
+				F2B0A4F98179B505F4AC15C1 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F2B0AC1923FC454DED1A394F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2B0A0BA9C5EDA6B56FD7F2E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

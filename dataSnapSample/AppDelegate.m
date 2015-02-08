@@ -25,7 +25,6 @@ const char MyConstantKey;
         UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
         [application registerForRemoteNotificationTypes:myTypes];
     }
-
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
@@ -33,7 +32,6 @@ const char MyConstantKey;
         application.applicationIconBadgeNumber = 0;
         [[DataSnapClient sharedClient] genericEvent:@{@"event" : @"App loaded from notification"}];
     }
-
     return YES;
 }
 

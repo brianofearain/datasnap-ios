@@ -23,10 +23,7 @@
 }
 
 - (void)recordEvent:(NSDictionary *)details {
-
-    // TODO hanldle generic request data (like orgID) here
     [self.eventQueue addObject:details];
-
     return;
 }
 
