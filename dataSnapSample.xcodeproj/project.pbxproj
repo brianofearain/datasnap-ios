@@ -19,11 +19,12 @@
 		F2B0A1623B72A6B46C383350 /* DSIOLocationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A11D399EE5F1A9BF0D44 /* DSIOLocationMgr.m */; };
 		F2B0A168D5EBE2254B22DAAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B0AF3BBA2BE9D526AEC062 /* Images.xcassets */; };
 		F2B0A416EDCF649D8F52C462 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B0ADA82B9642B921A68C90 /* CoreLocation.framework */; };
+		F2B0A4736C78BF53198B7094 /* DSIOEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A99E7F34E6D277FE20F1 /* DSIOEvents.m */; };
 		F2B0A5EC800668D435484C35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B0AC1923FC454DED1A394F /* Main.storyboard */; };
 		F2B0A6DF46D098D2D6BE8335 /* UserContext.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B0A9F49A8F7AE4CE8B6FBE /* UserContext.plist */; };
 		F2B0AA179FDB576CDF188DDA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2B0A9BA8999C7771E91436E /* InfoPlist.strings */; };
 		F2B0ACD922A5119FA36C3AEC /* dataSnapSample-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2B0A96B18485957E05A05FB /* dataSnapSample-Info.plist */; };
-		F2B0AE14A21F81BEFBB569D5 /* DSIOPropertiesSampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A63E7A205A72F31389E4 /* DSIOPropertiesSampleData.m */; };
+		F2B0AE14A21F81BEFBB569D5 /* DSIOSampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A63E7A205A72F31389E4 /* DSIOSampleData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,17 +57,19 @@
 		F1C6668F1A84A0EA00389838 /* DSIOProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOProperties.h; sourceTree = "<group>"; };
 		F1C666901A84A0EA00389838 /* DSIOProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOProperties.m; sourceTree = "<group>"; };
 		F2B0A0BA9C5EDA6B56FD7F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		F2B0A0DEBEAF57075469FF2F /* DSIOPropertiesSampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOPropertiesSampleData.h; sourceTree = "<group>"; };
+		F2B0A0DEBEAF57075469FF2F /* DSIOSampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOSampleData.h; sourceTree = "<group>"; };
 		F2B0A11D399EE5F1A9BF0D44 /* DSIOLocationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOLocationMgr.m; sourceTree = "<group>"; };
 		F2B0A4F98179B505F4AC15C1 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F2B0A5E49ABE3894B5A2ABE1 /* dataSnapSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dataSnapSample-Prefix.pch"; sourceTree = "<group>"; };
-		F2B0A63E7A205A72F31389E4 /* DSIOPropertiesSampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOPropertiesSampleData.m; sourceTree = "<group>"; };
+		F2B0A63E7A205A72F31389E4 /* DSIOSampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOSampleData.m; sourceTree = "<group>"; };
 		F2B0A87007F1ECDB9C2DAF33 /* DSIOLocationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOLocationMgr.h; sourceTree = "<group>"; };
 		F2B0A96B18485957E05A05FB /* dataSnapSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "dataSnapSample-Info.plist"; sourceTree = "<group>"; };
+		F2B0A99E7F34E6D277FE20F1 /* DSIOEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOEvents.m; sourceTree = "<group>"; };
 		F2B0A9F49A8F7AE4CE8B6FBE /* UserContext.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = UserContext.plist; sourceTree = "<group>"; };
 		F2B0ADA82B9642B921A68C90 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F2B0AF11FC2EA86157E6B10A /* DataSnapClient-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataSnapClient-Prefix.pch"; path = "DataSnap/DataSnapClient-Prefix.pch"; sourceTree = "<group>"; };
 		F2B0AF3BBA2BE9D526AEC062 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F2B0AFDEA349EBBA43F6B4B5 /* DSIOEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOEvents.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,10 +167,12 @@
 				F1C6668E1A84A0EA00389838 /* DSIORequest.m */,
 				F1C6668F1A84A0EA00389838 /* DSIOProperties.h */,
 				F1C666901A84A0EA00389838 /* DSIOProperties.m */,
-				F2B0A63E7A205A72F31389E4 /* DSIOPropertiesSampleData.m */,
-				F2B0A0DEBEAF57075469FF2F /* DSIOPropertiesSampleData.h */,
+				F2B0A63E7A205A72F31389E4 /* DSIOSampleData.m */,
+				F2B0A0DEBEAF57075469FF2F /* DSIOSampleData.h */,
 				F2B0A11D399EE5F1A9BF0D44 /* DSIOLocationMgr.m */,
 				F2B0A87007F1ECDB9C2DAF33 /* DSIOLocationMgr.h */,
+				F2B0A99E7F34E6D277FE20F1 /* DSIOEvents.m */,
+				F2B0AFDEA349EBBA43F6B4B5 /* DSIOEvents.h */,
 			);
 			path = DataSnap;
 			sourceTree = "<group>";
@@ -306,8 +311,9 @@
 				F1C6669C1A84A0EA00389838 /* DSIOClient.m in Sources */,
 				F1C666981A84A0EA00389838 /* ViewController.m in Sources */,
 				F1C6669F1A84A0EA00389838 /* DSIORequest.m in Sources */,
-				F2B0AE14A21F81BEFBB569D5 /* DSIOPropertiesSampleData.m in Sources */,
+				F2B0AE14A21F81BEFBB569D5 /* DSIOSampleData.m in Sources */,
 				F2B0A1623B72A6B46C383350 /* DSIOLocationMgr.m in Sources */,
+				F2B0A4736C78BF53198B7094 /* DSIOEvents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

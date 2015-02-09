@@ -168,9 +168,7 @@ static NSMutableDictionary *__globalData;
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"DataSnapUUID"];
 }
 
-+ (NSDictionary *)locationEvent:(NSObject *)obj details:(NSDictionary *)details org:(NSString *)orgID {
-    return @{};
-}
+
 + (NSMutableDictionary *)map:(NSDictionary *)dictionary withMap:(NSDictionary *)map {
     NSMutableDictionary *mapped = [[NSMutableDictionary alloc] initWithDictionary:dictionary];
     for (NSString *key in map) {
@@ -185,97 +183,6 @@ static NSMutableDictionary *__globalData;
     return mapped;
 }
 
-+ (NSDictionary *)getUserAndDataSnapDictionaryWithOrgAndProj:(NSString *)orgID projId:(NSString *)projID {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
-    [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
-    [data addNotNilEntriesFromDictionary:[DSIOProperties getIPAddress]];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-
-    NSMutableDictionary *dataDict = [NSMutableDictionary new];
-    dataDict[@"datasnap"] = [NSMutableDictionary new];
-    dataDict[@"datasnap"][@"device"] = [NSMutableDictionary new];
-    dataDict[@"datasnap"][@"txn_id"] = [DSIOProperties transactionID];
-    //    dataDict[@"datasnap"][@"created"] = [dateFormatter stringFromDate:[NSDate new]];
-    dataDict[@"datasnap"][@"created"] = [DSIOProperties currentDate];
-    dataDict[@"user"] = [NSMutableDictionary new];
-    dataDict[@"user"][@"id"] = [NSMutableDictionary new];
-    dataDict[@"user"][@"id"][@"datasnap_app_user_id"] = [DSIOProperties getUUID];
-
-    [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([[self getDataSnapDeviceKeys] containsObject:key]) {
-            dataDict[@"datasnap"][@"device"][key] = data[key];
-        } else if ([[self getUserIdentificationKeys] containsObject:key]) {
-            dataDict[@"user"][@"id"][key] = data[key];
-        }
-    }];
-    NSDictionary *carrierData = [DSIOProperties getCarrierData];
-    [dataDict[@"datasnap"][@"device"] addNotNilEntriesFromDictionary:carrierData];
-    dataDict[@"organization_ids"] = @[orgID];
-    dataDict[@"project_ids"] = @[projID];
-    NSLog(@"datadictionary");
-    NSLog(@"My dictionary is %@", dataDict);
-    return dataDict;
-}
-
-
-+ (NSDictionary *)getUserInfo:(NSString *)orgID projId:(NSString *)projID {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
-    [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
-    [data addNotNilEntriesFromDictionary:[DSIOProperties getIPAddress]];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-
-    NSMutableDictionary *dataDict = [NSMutableDictionary new];
-    dataDict[@"user"] = [NSMutableDictionary new];
-    dataDict[@"user"][@"id"] = [NSMutableDictionary new];
-    dataDict[@"user"][@"id"][@"datasnap_app_user_id"] = [DSIOProperties getUUID];
-
-    [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-     if ([[self getUserIdentificationKeys] containsObject:key]) {
-            dataDict[@"user"][@"id"][key] = data[key];
-        }
-    }];
-    // probably a duplicating entry of org & proj ids but leaving in for now
-    dataDict[@"organization_ids"] = @[orgID];
-    dataDict[@"project_ids"] = @[projID];
-    NSLog(@"datadictionary");
-    NSLog(@"My dictionary is %@", dataDict);
-    return dataDict;
-}
-
-+ (NSDictionary *)getDataSnap:(NSString *)orgID projId:(NSString *)projID {
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
-    [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
-    [data addNotNilEntriesFromDictionary:[DSIOProperties getIPAddress]];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-
-    NSMutableDictionary *dataDict = [NSMutableDictionary new];
-    dataDict[@"datasnap"] = [NSMutableDictionary new];
-    dataDict[@"datasnap"][@"device"] = [NSMutableDictionary new];
-    dataDict[@"datasnap"][@"txn_id"] = [DSIOProperties transactionID];
-    //    dataDict[@"datasnap"][@"created"] = [dateFormatter stringFromDate:[NSDate new]];
-    dataDict[@"datasnap"][@"created"] = [DSIOProperties currentDate];
-
-    [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([[self getDataSnapDeviceKeys] containsObject:key]) {
-            dataDict[@"datasnap"][@"device"][key] = data[key];
-        } else if ([[self getUserIdentificationKeys] containsObject:key]) {
-            dataDict[@"user"][@"id"][key] = data[key];
-        }
-    }];
-    NSDictionary *carrierData = [DSIOProperties getCarrierData];
-    [dataDict[@"datasnap"][@"device"] addNotNilEntriesFromDictionary:carrierData];
-    dataDict[@"organization_ids"] = @[orgID];
-    dataDict[@"project_ids"] = @[projID];
-    NSLog(@"datadictionary");
-    NSLog(@"My dictionary is %@", dataDict);
-    return dataDict;
-}
 
 + (NSDictionary *)dictionaryRepresentation:(NSObject *)obj {
     unsigned int count = 0;
@@ -303,26 +210,28 @@ static NSMutableDictionary *__globalData;
     [dict addEntriesFromDictionary:copy];
 }
 
+
 + (void)addIDFA:(NSString *)idfa {
     __globalData[@"mobile_device_ios_idfa"] = idfa;
 }
 
++ (NSArray *)getDataSnapKeys {
+    return @[@"created", @"device"];
+}
 
-+ (NSArray *)getBeaconKeys {
-    return @[@"identifier",
-            @"ble_uuid",
-            @"ble_vendor_uuid",
-            @"blue_vendor_id",
-            @"rssi",
-            @"previous_rssi",
+
++ (NSArray *)getDeviceKeys {
+    return @[@"user_agent",
+            @"ip_address",
+            @"platform",
+            @"os_version",
+            @"model",
+            @"manufacturer",
             @"name",
-            @"coordinates",
-            @"organization_ids",
-            @"visibility",
-            @"battery_level",
-            @"hardware",
-            @"categories",
-            @"tags"];
+            @"vendor_id",
+            @"carrier_name",
+            @"country_code",
+            @"network_code" ];
 }
 
 
@@ -345,13 +254,6 @@ static NSMutableDictionary *__globalData;
             @"tags"];
 }
 
-
-+ (NSArray *)getBeaconSightingEventKeys {
-    return @[@"event_type",
-            @"organization_ids",
-            @"project_ids",
-            @"beacon"];
-}
 
 + (NSArray *)getUserIdentificationKeys {
     return @[@"mobile_device_bluetooth_identifier",
@@ -385,7 +287,62 @@ static NSMutableDictionary *__globalData;
             @"vendor_id"];
 }
 
++ (NSArray *)getUserKeys {
+    return @[@"tags",
+            @"id",
+            @"audience",
+            @"user_properties"];
+}
 
+
+
+
++ (NSDictionary *)getUserInfo{
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
+    [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
+    [data addNotNilEntriesFromDictionary:[DSIOProperties getIPAddress]];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+
+    NSMutableDictionary *dataDict = [NSMutableDictionary new];
+    dataDict[@"user"] = [NSMutableDictionary new];
+    dataDict[@"user"][@"id"] = [NSMutableDictionary new];
+    dataDict[@"user"][@"id"][@"datasnap_app_user_id"] = [DSIOProperties getUUID];
+
+    [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([[self getUserIdentificationKeys] containsObject:key]) {
+            dataDict[@"user"][@"id"][key] = data[key];
+        }
+    }];
+    return dataDict;
+}
+
++ (NSDictionary *)getDataSnap{
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
+    [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
+    [data addNotNilEntriesFromDictionary:[DSIOProperties getIPAddress]];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+
+    NSMutableDictionary *dataDict = [NSMutableDictionary new];
+    dataDict[@"datasnap"] = [NSMutableDictionary new];
+    dataDict[@"datasnap"][@"device"] = [NSMutableDictionary new];
+    dataDict[@"datasnap"][@"txn_id"] = [DSIOProperties transactionID];
+    dataDict[@"datasnap"][@"created"] = [DSIOProperties currentDate];
+
+    [data enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([[self getDataSnapDeviceKeys] containsObject:key]) {
+            dataDict[@"datasnap"][@"device"][key] = data[key];
+        } else if ([[self getUserIdentificationKeys] containsObject:key]) {
+            dataDict[@"user"][@"id"][key] = data[key];
+        }
+    }];
+    NSDictionary *carrierData = [DSIOProperties getCarrierData];
+    [dataDict[@"datasnap"][@"device"] addNotNilEntriesFromDictionary:carrierData];
+    return dataDict;
+}
 
 
 

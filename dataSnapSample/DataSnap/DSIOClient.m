@@ -36,6 +36,8 @@ static BOOL loggingEnabled = NO;
 
 @implementation DSIOClient
 
+#pragma mark - Init the SDK with org id, project id, apikey and apisecret
+
 + (void) setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret {
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
@@ -57,11 +59,11 @@ static BOOL loggingEnabled = NO;
     return self;
 }
 
+#pragma mark - Event Handlers
 
 - (void)flushEvents {
     [self.eventQueue flushQueue];
 }
-
 
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
@@ -70,19 +72,12 @@ static BOOL loggingEnabled = NO;
     [self checkQueue];
 }
 
-- (void)beaconSightingEvent:(NSMutableDictionary *)eventDetails {
+- (void)beaconEvent:(NSMutableDictionary *)eventDetails {
     [self eventHandler:eventDetails];
 }
 
-- (void)beaconDepartEvent:(NSMutableDictionary *)eventDetails {
-    [self eventHandler:eventDetails];
-}
 
-- (void)geofenceArriveEvent:(NSMutableDictionary *)eventDetails {
-    [self eventHandler:eventDetails];
-}
-
-- (void)geofenceDepartEvent:(NSMutableDictionary *)eventDetails {
+- (void)geofenceEvent:(NSMutableDictionary *)eventDetails {
     [self eventHandler:eventDetails];
 }
 
@@ -90,23 +85,8 @@ static BOOL loggingEnabled = NO;
     [self eventHandler:eventDetails];
 }
 
-                  // split getUserAndDataSnapDictionaryWithOrgAndProj
-- (NSMutableDictionary *)getUserInfo {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserInfo:__organizationID projId:__projectID]];
-    return eventData;
-}
-
-- (NSMutableDictionary *)getDataSnap {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getDataSnap:__organizationID projId:__projectID]];
-    return eventData;
-}
-
 - (void)eventHandler:(NSMutableDictionary *)eventDetails {
-    // over-instantiating here - need to just fill these objects once
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *global_position = [self.locationMgr getGeoPosition];
-    NSLog(@"%@", [global_position description]);
-    eventData[@"global_position"] = global_position[@"global_position"];
     [eventDetails addEntriesFromDictionary:eventData];
     [self.eventQueue recordEvent:eventDetails];
     [self checkQueue];
@@ -117,13 +97,15 @@ static BOOL loggingEnabled = NO;
 }
 
 - (void)checkQueue {
-    // If queue is full, send events and flush queue
     if (self.eventQueue.numberOfQueuedEvents >= self.eventQueue.queueLength) {
         DSLog(@"Queue is full. %d will be sent to service and flushed.", (int) self.eventQueue.numberOfQueuedEvents);
         [self.requestHandler sendEvents:self.eventQueue.getEvents];
         [self flushEvents];
     }
 }
+
+#pragma mark - Turn on/off logging
+
 
 + (void)disableLogging {
     loggingEnabled = NO;

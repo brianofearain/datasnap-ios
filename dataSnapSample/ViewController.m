@@ -5,8 +5,9 @@
 
 #import "ViewController.h"
 #import "DSIOClient.h"
-#import "DSIOPropertiesSampleData.h"
+#import "DSIOSampleData.h"
 #import "DSIOProperties.h"
+#import "DSIOEvents.h"
 
 
 // Get current datetime
@@ -57,22 +58,15 @@ NSString *currentDate() {
 }
 
 - (void)buildBeaconSightingEvent{
-    NSMutableDictionary *eventData = [self getSampleBeaconSightingEvent];
-    [[DSIOClient sharedClient] beaconSightingEvent:eventData];
+    NSArray *beaconSampleValues =  [DSIOSampleData getBeaconEventSampleValues] ;
+    NSArray *beaconEventKeys = [DSIOEvents getBeaconEventKeys] ;
+    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSampleValues forKeys:beaconEventKeys];
+    [[DSIOClient sharedClient] beaconEvent:beaconSighting];
     [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
 }
 
-- (NSMutableDictionary *) getSampleBeaconSightingEvent{
-    NSArray *beaconSightingSampleValues =  [DSIOPropertiesSampleData getBeaconSightingEventSampleValues] ;
-    NSArray *beaconSightingEventKeys =  [DSIOProperties getBeaconSightingEventKeys] ;
-    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues forKeys:beaconSightingEventKeys];
-    return beaconSighting;
-}
-
-
 - (NSMutableDictionary *)buildGeofenceDepartEvent {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-
     NSMutableDictionary *geoFence = [[NSMutableDictionary alloc] init];
     geoFence = @{@"time" : currentDate(),
             @"identifier" : @"12qAS5",
@@ -85,7 +79,7 @@ NSString *currentDate() {
 
     [eventData addEntriesFromDictionary:@{@"event_type" : @"geofence_depart", @"geofence" : geoFence, @"organization_ids" : @"3HRhnUtmtXnT1UHQHClAcP"
     , @"project_ids" : @"3HRhnUtmtXnT1UHQHClAcP", @"place" : place, @"user" : user}];
-    [[DSIOClient sharedClient] geofenceArriveEvent:eventData];
+    [[DSIOClient sharedClient] geofenceEvent:eventData];
     [self logToDeviceAndConsole:@"Datasnap Geofence Depart Event %@"];
     return eventData;
 }
@@ -103,7 +97,7 @@ NSString *currentDate() {
 }
 
 - (NSMutableDictionary *)buildUser {
-    NSMutableDictionary *user =  [[DSIOClient sharedClient] getUserInfo];
+    NSMutableDictionary *user =  [DSIOProperties getUserInfo];
     return user;
 }
 

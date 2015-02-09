@@ -20,8 +20,8 @@
 
 // this function should be removed as it has been split into the two beneath
 + (NSDictionary *)getUserAndDataSnapDictionaryWithOrgAndProj:(NSString *)orgID projId:(NSString *)projID;
-+ (NSDictionary *)getUserInfo:(NSString *)orgID projId:(NSString *)projID;
-+ (NSDictionary *)getDataSnap:(NSString *)orgID projId:(NSString *)projID;
++ (NSDictionary *)getUserInfo;
++ (NSDictionary *)getDataSnap;
 
 + (NSMutableDictionary *)map:(NSDictionary *)dictionary withMap:(NSDictionary *)map;
 + (NSDictionary *)dictionaryRepresentation:(NSObject *)obj;
@@ -30,7 +30,11 @@
 
 
 + (NSArray *)getBeaconProperties;
-+ (NSArray *)getBeaconSightingEventKeys;
++ (NSArray *)getBeaconSightingEventProperties;
+
++ (NSArray *)getDataSnapKeys;
+
++ (NSArray *)getUserKeys;
 
 
 @end
