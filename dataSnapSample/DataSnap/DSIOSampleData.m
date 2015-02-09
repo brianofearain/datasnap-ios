@@ -33,9 +33,7 @@
     return @[@"beacon_sighting",
             @[@"12RhnUtmtXnT1UHQHClAcP"],
             @[@"567hnUtmtXnT1UHQHClAcP"],
-            [self getBeaconSampleData],
-            [self getDataSnapSampleData],
-            [self getUserSampleData]];
+            [self getBeaconSampleData]];
 }
 
 
@@ -46,7 +44,6 @@
                                                                      forKeys:dataSnapKeys];
     return beacon;
 }
-
 
 
 + (NSArray *)getDataSnapSampleValues {
@@ -71,9 +68,9 @@
 + (NSMutableDictionary *) getUserSampleData{
     NSArray *userSampleValues =  [self getUserSampleValues] ;
     NSArray *userKeys = [DSIOProperties getUserKeys] ;
-    NSMutableDictionary *beacon = [NSMutableDictionary dictionaryWithObjects:userSampleValues
+    NSMutableDictionary *user = [NSMutableDictionary dictionaryWithObjects:userSampleValues
                                                                      forKeys:userKeys];
-    return beacon;
+    return user;
 }
 
 + (NSArray *)getUserSampleValues {

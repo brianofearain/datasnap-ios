@@ -1,5 +1,4 @@
 //
-// Created by Brian Feran on 2/8/15.
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
 

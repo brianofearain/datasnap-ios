@@ -1,5 +1,4 @@
 //
-// Created by Brian Feran on 2/8/15.
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
 
@@ -14,9 +13,7 @@
         return @[@"event_type",
                 @"organization_ids",
                 @"project_ids",
-                @"beacon",
-                @"datasnap",
-                @"user"];
+                @"beacon"];
     }
 
 + (NSArray *)getInteractionEventKeys {

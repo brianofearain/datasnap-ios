@@ -8,8 +8,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   [DSIOClient setupWithOrgAndProjIDs:@"3HRhnUtmtXnT1UHQHClAcP" projectId:@"3HRhnUtmtXnT1UHQHClAcP"
-               APIKey:@"1EM53HT8597CC7Q5QP0U8DN73"  APISecret:@"CcduyakRsZ8AQ/HLdXER2EjsCOlf29CTFVk/BctFmQM"];
+   [DSIOClient setupWithOrgAndProjIDs:@"Q2WWR5431vBoQA34er" projectId:@"YQ2WWR5431vBoQA34er"
+               APIKey:@"7CC859QP0U84F6VEM53HT"  APISecret:@"P0U8WR543sZ8AQ/P2WWR54tFmQCTFVk/CTFVmQM"];
     return YES;
 }
 

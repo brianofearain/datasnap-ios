@@ -1,21 +1,27 @@
-(IN TESTING ) DataSnapClient
+DataSnapClient
 =================
 
 An Vendor neutral iOS Sample app and SDK for [DataSnap.io](http://datasnap.io)
 
-## Documentation
+## Documentation:
+
+See http://datasnap-io.github.io/sendingdata/ for more information on event types.
 
 ### Quickstart
 
-1. `#import "DataSnapClient/Client.h"` in your source
-2. `[DataSnapClient setupWithOrgAndProjIDs:@"" projectId:@"" APIKey:@"" APISecret:@""]`
+1. `#import "DataSnapClient/DSIOClient.h"` in your source
+2. `[DSIOClient setupWithOrgAndProjIDs:@"" projectId:@"" APIKey:@"" APISecret:@""]`
 
-### Example Events
+### How to send events
+
+DSIOEvents contains arrays with the keys for each event type.
+DSIOProperties contains arrays with the keys for each property required by events
+The ViewController in the sample, contains a fully worked out Beacon Sighting Event using sample data.
+
+
+### Example Event:
 
 ```objective-c
-[[DataSnapClient sharedClient] genericEvent:@{@"key": @"value"}]
-
-[[DataSnapClient sharedClient] beaconSightingEvent:(NSMutableDictionary *)eventDetails]
-
-[[DataSnapClient sharedClient] geofenceArriveEvent:(NSMutableDictionary *)eventDetails]
+    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSampleValues forKeys:beaconEventKeys];
+    [[DSIOClient sharedClient] beaconEvent:beaconSighting];
 ```
