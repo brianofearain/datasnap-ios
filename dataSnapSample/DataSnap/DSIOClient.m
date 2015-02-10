@@ -1,3 +1,6 @@
+//
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
 #import "DSIOProperties.h"
 #import "DSIOClient.h"
 #import "DSIOEventQueue.h"
@@ -6,12 +9,10 @@
 #import <objc/runtime.h>
 
 static DSIOClient *__sharedInstance = nil;
-const int eventQueueSize = 5;
+const int eventQueueSize = 1;
 static NSString *__organizationID;
 static NSString *__projectID;
 static BOOL loggingEnabled = NO;
-
-
 
 @implementation NSMutableDictionary (AddNotNil)
 
@@ -24,7 +25,6 @@ static BOOL loggingEnabled = NO;
 @end
 
 @interface DSIOClient ()
-
 
 @property DSIOEventQueue *eventQueue;
 @property DSIORequest *requestHandler;
@@ -52,9 +52,8 @@ static BOOL loggingEnabled = NO;
         NSData *authData = [[NSString stringWithFormat:@"%@:%@", APIKey, APISecret] dataUsingEncoding:NSUTF8StringEncoding];
         NSString *authString = [authData base64EncodedStringWithOptions:0];
         self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventQueueSize];
-        self.requestHandler = [[DSIORequest alloc] initWithURL:@"https://api-events.datasnap.io/v1.0/events" authString:authString];
+        self.requestHandler = [[DSIORequest alloc] initWithURL:@"https://api-events-staging.datasnap.io/v1.0/events" authString:authString];
         self.locationMgr = [[DSIOLocationMgr alloc] init];
-
     }
     return self;
 }
@@ -65,6 +64,7 @@ static BOOL loggingEnabled = NO;
     [self.eventQueue flushQueue];
 }
 
+// will be interfacing from here to the DSIOProperties stuff....
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
     [eventDetails addEntriesFromDictionary:eventData];
@@ -76,8 +76,15 @@ static BOOL loggingEnabled = NO;
     [self eventHandler:eventDetails];
 }
 
-
 - (void)geofenceEvent:(NSMutableDictionary *)eventDetails {
+    [self eventHandler:eventDetails];
+}
+
+- (void)globalPositionEvent:(NSMutableDictionary *)eventDetails {
+   // [self eventHandler:eventDetails geoPosition:[self.locationMgr getGeoPosition]];
+}
+
+- (void)placeEvent:(NSMutableDictionary *)eventDetails {
     [self eventHandler:eventDetails];
 }
 
@@ -86,8 +93,7 @@ static BOOL loggingEnabled = NO;
 }
 
 - (void)eventHandler:(NSMutableDictionary *)eventDetails {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
-    [eventDetails addEntriesFromDictionary:eventData];
+    [eventDetails addEntriesFromDictionary:@{@"organization_ids" : @[__organizationID], @"project_ids": @[__projectID]}];
     [self.eventQueue recordEvent:eventDetails];
     [self checkQueue];
 }
@@ -106,7 +112,6 @@ static BOOL loggingEnabled = NO;
 
 #pragma mark - Turn on/off logging
 
-
 + (void)disableLogging {
     loggingEnabled = NO;
 }
@@ -118,7 +123,6 @@ static BOOL loggingEnabled = NO;
 + (BOOL)isLoggingEnabled {
     return loggingEnabled;
 }
-
 
 @end
 

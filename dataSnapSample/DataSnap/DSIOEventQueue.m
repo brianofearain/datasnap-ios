@@ -1,3 +1,7 @@
+//
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
+
 #import "DSIOEventQueue.h"
 
 @interface DSIOEventQueue ()

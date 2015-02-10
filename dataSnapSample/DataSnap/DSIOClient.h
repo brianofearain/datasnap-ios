@@ -1,3 +1,6 @@
+//
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
 #import <CoreLocation/CoreLocation.h>
 
 @interface DSIOClient : NSObject
@@ -12,6 +15,10 @@ Event Handlers
 - (void)geofenceEvent:(NSMutableDictionary *)eventDetails;
 - (void)beaconEvent:(NSMutableDictionary *)eventDetails;
 - (void)eventHandler:(NSMutableDictionary *)eventDetails;
+- (void)globalPositionEvent:(NSMutableDictionary *)eventDetails;
+- (void)placeEvent:(NSMutableDictionary *)eventDetails;
+- (void)communicationEvent:(NSMutableDictionary *)eventDetails;
+- (void)campaignEvent:(NSMutableDictionary *)eventDetails;
 
 /**
 Enable/disable logging.

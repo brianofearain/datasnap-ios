@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2014 Datasnap.io. All rights reserved.
-//  Datasnap Generic Sample
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
 
 #import "AppDelegate.h"
 #import "DSIOClient.h"
@@ -8,8 +8,10 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   [DSIOClient setupWithOrgAndProjIDs:@"Q2WWR5431vBoQA34er" projectId:@"YQ2WWR5431vBoQA34er"
-               APIKey:@"7CC859QP0U84F6VEM53HT"  APISecret:@"P0U8WR543sZ8AQ/P2WWR54tFmQCTFVk/CTFVmQM"];
+    [DSIOClient setupWithOrgAndProjIDs:@"BF1q2w3HRhnUtmtXnT1UHQHClAcP"
+                                 projectId:@"BF1q2w3HRhnUtmtXnT1UHQHClAcP"
+                                    APIKey:@"BF1q2w1EM53HT8597CC7Q5QP0U8DN73"
+                                 APISecret:@"BF1q2wCcduyakRsZ8AQ/BF1q2wHLdXER2EjsCOlf29CTFVk/BctFmQM"];
     return YES;
 }
 

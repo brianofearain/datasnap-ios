@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2014 Datasnap.io. All rights reserved.
-//  Datasnap Generic Sample
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
 

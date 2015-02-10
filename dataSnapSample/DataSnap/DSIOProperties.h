@@ -1,3 +1,7 @@
+//
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
+
 #import <Foundation/Foundation.h>
 
 @interface DSIOProperties : NSObject

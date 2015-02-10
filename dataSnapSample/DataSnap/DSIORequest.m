@@ -1,3 +1,7 @@
+//
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
+
 #import "DSIORequest.h"
 #import "DSIOProperties.h"
 #import "DSIOSampleData.h"
@@ -34,12 +38,13 @@
     NSInteger responseCode = [res statusCode];
     if((responseCode/100) != 2){
         NSLog(@"Error sending request to %@. Response code: %d.\n", urlRequest.URL, (int) responseCode);
+        NSLog(json);
         if(err){
-            NSLog(@"%@\n", err.description);
+            NSLog(@"%@\n", err.description, json);
         }
     }
     else {
-//        NSLog(@"Request successfully sent to %@.\nStatus code: %d.\nData Sent: %@.\n", urlRequest.URL, (int) responseCode, json);
+       NSLog(@"Request successfully sent to %@.\nStatus code: %d.\nData Sent: %@.\n", urlRequest.URL, (int) responseCode, json);
     }
 }
 

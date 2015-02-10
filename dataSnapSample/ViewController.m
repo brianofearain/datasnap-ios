@@ -1,7 +1,6 @@
 //
-//  Copyright (c) 2014 Datasnap.io. All rights reserved.
-//  Datasnap Generic Sample
-
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
 
 #import "ViewController.h"
 #import "DSIOClient.h"
@@ -30,7 +29,11 @@ NSString *currentDate() {
 }
 
 - (void)viewDidLoad {
-    [self buildBeaconSightingEvent];
+    [self buildBeaconEvent];
+  // [self buildGeofenceEvent];
+  // [self buildPlaceEvent];
+  // [self buildGlobalPositionEvent];
+  // [self buildCommunicationEvent];
     [NSTimer scheduledTimerWithTimeInterval:5.0 target:self
                                    selector:@selector(callEvents:) userInfo:nil repeats:YES];
 }
@@ -38,7 +41,11 @@ NSString *currentDate() {
 
 // mimic events - for sample scenario without an event listener configured
 - (void)callEvents:(NSTimer *)t {
-    [self buildBeaconSightingEvent];
+    [self buildBeaconEvent];
+  //  [self buildGeofenceEvent];
+  //  [self buildPlaceEvent];
+  //  [self buildGlobalPositionEvent];
+  //  [self buildCommunicationEvent];
 }
 
 - (void)logToDeviceAndConsole:(NSString *)eventName{
@@ -48,13 +55,54 @@ NSString *currentDate() {
     DeviceLog(message);
 }
 
-- (void)buildBeaconSightingEvent{
-    NSArray *beaconSampleValues =  [DSIOSampleData getBeaconEventSampleValues] ;
+- (void)buildBeaconEvent{
+    NSArray *beaconEventSampleValues =  [DSIOSampleData getBeaconEventSampleValues] ;
     NSArray *beaconEventKeys = [DSIOEvents getBeaconEventKeys] ;
-    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSampleValues forKeys:beaconEventKeys];
+    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconEventSampleValues forKeys:beaconEventKeys];
     [[DSIOClient sharedClient] beaconEvent:beaconSighting];
     [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
 }
+
+- (void)buildGeofenceEvent{
+    NSArray *geofenceEventSampleValues =  [DSIOSampleData getGeofenceEventSampleValues] ;
+    NSArray *geofenceEventKeys = [DSIOEvents getGeofenceEventKeys] ;
+    NSMutableDictionary *geoEvent = [NSMutableDictionary dictionaryWithObjects:geofenceEventSampleValues forKeys:geofenceEventKeys];
+    [[DSIOClient sharedClient] beaconEvent:geoEvent];
+    [self logToDeviceAndConsole:@"Datasnap Geofence Sighting Event %@"];
+}
+
+- (void)buildPlaceEvent{
+    NSArray *placeEventSampleValues =  [DSIOSampleData getPlaceEventSampleValues] ;
+    NSArray *placeEventKeys = [DSIOEvents getPlaceEventKeys] ;
+    NSMutableDictionary *place = [NSMutableDictionary dictionaryWithObjects:placeEventSampleValues forKeys:placeEventKeys];
+    [[DSIOClient sharedClient] placeEvent:place];
+    [self logToDeviceAndConsole:@"Datasnap Place Event %@"];
+}
+
+- (void)buildGlobalPositionEvent{
+    NSArray *globalPositionEventSampleValues =  [DSIOSampleData getGlobalPositionEventSampleValues] ;
+    NSArray *globalPositionEventKeys = [DSIOEvents getGlobalPositionEventKeys] ;
+    NSMutableDictionary *globalPosition = [NSMutableDictionary dictionaryWithObjects:globalPositionEventSampleValues forKeys:globalPositionEventKeys];
+    [[DSIOClient sharedClient] globalPositionEvent:globalPosition];
+    [self logToDeviceAndConsole:@"Datasnap Global Position Sighting Event %@"];
+}
+
+- (void)buildCommunicationEvent{
+    NSArray *communicationEventSampleValues =  [DSIOSampleData getCommunicationEventSampleValues] ;
+    NSArray *communicationEventKeys = [DSIOEvents getCommunicationEventKeys] ;
+    NSMutableDictionary *communication = [NSMutableDictionary dictionaryWithObjects:communicationEventSampleValues forKeys:communicationEventKeys];
+    [[DSIOClient sharedClient] communicationEvent:communication];
+    [self logToDeviceAndConsole:@"Datasnap Communication Event %@"];
+}
+
+//- (void)buildCampaignEvent{
+//    NSArray *campaignEventSampleValues =  [DSIOSampleData getCampaignEventSampleValues] ;
+//    NSArray *campaignEventKeys = [DSIOEvents getCampaignEventKeys] ;
+//    NSMutableDictionary *campaign = [NSMutableDictionary dictionaryWithObjects:campaignEventSampleValues forKeys:campaignEventKeys];
+//    [[DSIOClient sharedClient] campaignEvent:campaign];
+//    [self logToDeviceAndConsole:@"Datasnap Global Position Sighting Event %@"];
+//}
+
 
 
 

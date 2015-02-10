@@ -1,3 +1,7 @@
+//
+// Copyright (c) 2015 Datasnapio. All rights reserved.
+//
+
 #import "DSIOProperties.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -215,88 +219,8 @@ static NSMutableDictionary *__globalData;
     __globalData[@"mobile_device_ios_idfa"] = idfa;
 }
 
-+ (NSArray *)getDataSnapKeys {
-    return @[@"created", @"device"];
-}
 
-
-+ (NSArray *)getDeviceKeys {
-    return @[@"user_agent",
-            @"ip_address",
-            @"platform",
-            @"os_version",
-            @"model",
-            @"manufacturer",
-            @"name",
-            @"vendor_id",
-            @"carrier_name",
-            @"country_code",
-            @"network_code" ];
-}
-
-
-+ (NSArray *)getBeaconProperties {
-    return @[@"identifier",
-            @"ble_uuid",
-            @"ble_vendor_uuid",
-            @"ble_vendor_id",
-            @"name",
-            @"rssi",
-            @"previous_rssi",
-            @"is_mobile",
-            @"start_time",
-            @"coordinates",
-            @"visibility",
-            @"battery_level",
-            @"temperature",
-            @"hardware",
-            @"categories",
-            @"tags"];
-}
-
-
-+ (NSArray *)getUserIdentificationKeys {
-    return @[@"mobile_device_bluetooth_identifier",
-            @"mobile_device_ios_idfa",
-            @"mobile_device_ios_openidfa",
-            @"mobile_device_ios_idfv",
-            @"mobile_device_ios_udid",
-            @"datasnap_uuid",
-            @"web_domain_userid",
-            @"web_cookie",
-            @"domain_sessionid",
-            @"web_network_userid",
-            @"web_user_fingerprint",
-            @"web_analytics_company_z_cookie",
-            @"global_distinct_id",
-            @"global_user_ipaddress",
-            @"mobile_device_fingerprint",
-            @"facebook_uid",
-            @"mobile_device_google_advertising_id",
-            @"mobile_device_google_google_advertising_id_opt_in"];
-}
-
-+ (NSArray *)getDataSnapDeviceKeys {
-    return @[@"user_agent",
-            @"ip_address",
-            @"platform",
-            @"os_version",
-            @"model",
-            @"manufacturer",
-            @"name",
-            @"vendor_id"];
-}
-
-+ (NSArray *)getUserKeys {
-    return @[@"tags",
-            @"id",
-            @"audience",
-            @"user_properties"];
-}
-
-
-
-
+/*
 + (NSDictionary *)getUserInfo{
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
     [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
@@ -343,6 +267,8 @@ static NSMutableDictionary *__globalData;
     [dataDict[@"datasnap"][@"device"] addNotNilEntriesFromDictionary:carrierData];
     return dataDict;
 }
+*/
+
 
 
 
