@@ -35,7 +35,6 @@
     NSHTTPURLResponse *res = nil;
     NSError *err = nil;
     [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&res error:&err];
-    NSLog(res);
     NSInteger responseCode = [res statusCode];
     if((responseCode/100) != 2){
         NSLog(@"Error sending request to %@. Response code: %d.\n", urlRequest.URL, (int) responseCode);
