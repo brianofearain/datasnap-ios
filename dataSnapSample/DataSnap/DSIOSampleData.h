@@ -31,4 +31,7 @@
 + (NSArray *) getCommunicationEventSampleValues;
 + (NSMutableDictionary *) getCommunicationEventSampleData;
 
+// Sample Device/Datasnap values
++ (NSMutableDictionary *) getDataSnapSampleValues;
+
 @end

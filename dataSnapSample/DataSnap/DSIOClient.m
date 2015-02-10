@@ -65,10 +65,7 @@ static BOOL loggingEnabled = NO;
 }
 
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
-    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
-    [eventDetails addEntriesFromDictionary:eventData];
-    [self.eventQueue recordEvent:eventDetails];
-    [self checkQueue];
+    [self eventHandler:eventDetails];
 }
 
 - (void)beaconEvent:(NSMutableDictionary *)eventDetails {

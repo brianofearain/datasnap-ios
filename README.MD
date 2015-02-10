@@ -1,7 +1,7 @@
 DataSnapClient
 =================
 
-An Vendor neutral iOS Sample app and SDK for [DataSnap.io](http://datasnap.io)
+A Vendor neutral iOS Sample app and SDK for [DataSnap.io](http://datasnap.io)
 
 ## Documentation:
 
@@ -16,7 +16,7 @@ See http://datasnap-io.github.io/sendingdata/ for more information on event type
 
 DSIOEvents contains arrays with keys, representing the properties required for each event type.
 DSIOProperties contains dictionaries for showing how to build each of the these properties.
-The ViewController in the sample, contains a fully worked out Beacon Sighting Event using sample data.
+The ViewController in the sample, contains a fully worked out Beacon Sighting Event using sample data. It also shows a how to send data to DataSnap using a generic event function.
 
 
 ### Example Event:
