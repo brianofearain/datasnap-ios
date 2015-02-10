@@ -52,7 +52,7 @@ static BOOL loggingEnabled = NO;
         NSData *authData = [[NSString stringWithFormat:@"%@:%@", APIKey, APISecret] dataUsingEncoding:NSUTF8StringEncoding];
         NSString *authString = [authData base64EncodedStringWithOptions:0];
         self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventQueueSize];
-        self.requestHandler = [[DSIORequest alloc] initWithURL:@"https://api-events-staging.datasnap.io/v1.0/events" authString:authString];
+        self.requestHandler = [[DSIORequest alloc] initWithURL:@"https://api-events.datasnap.io/v1.0/events" authString:authString];
         self.locationMgr = [[DSIOLocationMgr alloc] init];
     }
     return self;
