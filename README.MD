@@ -14,8 +14,8 @@ See http://datasnap-io.github.io/sendingdata/ for more information on event type
 
 ### How to send events
 
-DSIOEvents contains arrays with the keys for each event type.
-DSIOProperties contains arrays with the keys for each property required by events
+DSIOEvents contains arrays with keys, representing the properties required for each event type.
+DSIOProperties contains dictionaries for showing how to build each of the these properties.
 The ViewController in the sample, contains a fully worked out Beacon Sighting Event using sample data.
 
 
