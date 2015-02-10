@@ -122,7 +122,6 @@
             [self getUserIdSampleData],
             [self getGlobalPositionSampleData],
             [self getDataSnapSampleValues]];
-    // change to a more specific place event type...
 }
 
 + (NSMutableDictionary *)getGlobalPositionSampleData {
@@ -145,7 +144,6 @@
 
 #pragma mark - Global Position Event Sample Data
 
-// change to a more specific place event type...
 + (NSArray *)getGlobalPositionEventSampleValues {
     return @[@"place_arrive",
             [self getUserIdSampleData],

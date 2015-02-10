@@ -8,8 +8,6 @@
 #import "DSIOProperties.h"
 #import "DSIOEvents.h"
 
-
-// Get current datetime
 NSString *currentDate() {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy HH:mm:ss"];

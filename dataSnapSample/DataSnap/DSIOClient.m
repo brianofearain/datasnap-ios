@@ -9,7 +9,7 @@
 #import <objc/runtime.h>
 
 static DSIOClient *__sharedInstance = nil;
-const int eventQueueSize = 1;
+const int eventQueueSize = 20;
 static NSString *__organizationID;
 static NSString *__projectID;
 static BOOL loggingEnabled = NO;
@@ -64,7 +64,6 @@ static BOOL loggingEnabled = NO;
     [self.eventQueue flushQueue];
 }
 
-// will be interfacing from here to the DSIOProperties stuff....
 - (void)genericEvent:(NSMutableDictionary *)eventDetails {
     NSMutableDictionary *eventData = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getUserAndDataSnapDictionaryWithOrgAndProj:__organizationID projId:__projectID]];
     [eventDetails addEntriesFromDictionary:eventData];
