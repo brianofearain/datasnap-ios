@@ -15,6 +15,7 @@
 + (NSMutableDictionary *) getBeaconPropertySampleData{
     NSMutableDictionary *beacon = [[NSMutableDictionary alloc] init];
     beacon = @{@"iconUrl": @"https:\/\/proximity.test.com\/assets\/fallback\/default_icon.png",
+            @"identifier": @"TEST-BEACON-28AHD",
             @"last_update_time":@"2015-02-09 23:13:56 +0000",
             @"battery_level": @2,
             @"name": @"Test Mobile Beacon",

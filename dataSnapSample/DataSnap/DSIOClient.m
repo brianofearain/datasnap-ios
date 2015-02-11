@@ -69,27 +69,49 @@ static BOOL loggingEnabled = NO;
 }
 
 - (void)beaconEvent:(NSMutableDictionary *)eventDetails {
-    [self eventHandler:eventDetails];
+    if ([eventDetails valueForKeyPath:@"beacon.identifier"] != nil)
+        [self eventHandler:eventDetails];
+    else {
+        NSLog(@"Unable to create beacon event, beacon properties not correct");
+    }
 }
 
 - (void)geofenceEvent:(NSMutableDictionary *)eventDetails {
-    [self eventHandler:eventDetails];
+    if ([eventDetails valueForKeyPath:@"geofence.identifier"]!= nil)
+        [self eventHandler:eventDetails];
+    else {
+        NSLog(@"Unable to create beacon event, beacon properties not correct");
+    }
 }
 
 - (void)globalPositionEvent:(NSMutableDictionary *)eventDetails {
-   // [self eventHandler:eventDetails geoPosition:[self.locationMgr getGeoPosition]];
+    if ([eventDetails valueForKeyPath:@"globalPosition.location"]!= nil){
+        [eventDetails addEntriesFromDictionary:[self.locationMgr getGeoPosition]];
+        [self eventHandler:eventDetails];
+    }
+    else {
+        NSLog(@"Unable to create GPS event, GPS properties not correct");
+    }
 }
 
 - (void)placeEvent:(NSMutableDictionary *)eventDetails {
-    [self eventHandler:eventDetails];
+    if ([eventDetails valueForKeyPath:@"place.id"] != nil)
+        [self eventHandler:eventDetails];
+    else {
+        NSLog(@"Unable to create place event, place properties not correct");
+    }
 }
 
 - (void)communicationEvent:(NSMutableDictionary *)eventDetails {
-    [self eventHandler:eventDetails];
+    if ([eventDetails valueForKeyPath:@"communication.identifier"] != nil)
+        [self eventHandler:eventDetails];
+    else {
+        NSLog(@"Unable to create communication event, communication properties not correct");
+    }
 }
 
 - (void)eventHandler:(NSMutableDictionary *)eventDetails {
-    [eventDetails addEntriesFromDictionary:@{@"organization_ids" : @[__organizationID], @"project_ids": @[__projectID]}];
+    [eventDetails addEntriesFromDictionary:@{@"organization_ids" : @[__organizationID], @"project_ids" : @[__projectID]}];
     [self.eventQueue recordEvent:eventDetails];
     [self checkQueue];
 }
@@ -105,6 +127,7 @@ static BOOL loggingEnabled = NO;
         [self flushEvents];
     }
 }
+
 
 #pragma mark - Turn on/off logging
 
