@@ -11,8 +11,10 @@
     [DSIOClient setupWithOrgAndProjIDs:@"2qM5ckFqzFCcCIdY7xYhBc"
                              projectId:@"2qM5ckFqzFCcCIdY7xYhBc"
                                 APIKey:@"5Z0TKJ8GLZOR40IU4CBOEH78B"
-                             APISecret:@"PDGIbwW25CbUkRSIp/OOB+WniDDudG/Pu+jfjzAEfwQ"];
-        return YES;
+                             APISecret:@"PDGIbwW25CbUkRSIp/OOB+WniDDudG/Pu+jfjzAEfwQ"
+                             logging:true];
+
+    return YES;
     }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {

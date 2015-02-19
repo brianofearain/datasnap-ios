@@ -2,7 +2,7 @@
 // Copyright (c) 2015 Datasnapio. All rights reserved.
 //
 
-#import <Foundation/Foundation.h> // Apple
+#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
 

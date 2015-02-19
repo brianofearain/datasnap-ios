@@ -18,6 +18,7 @@
 		F1C666A01A84A0EA00389838 /* DSIOProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C666901A84A0EA00389838 /* DSIOProperties.m */; };
 		F2B0A1623B72A6B46C383350 /* DSIOLocationMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A11D399EE5F1A9BF0D44 /* DSIOLocationMgr.m */; };
 		F2B0A168D5EBE2254B22DAAD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2B0AF3BBA2BE9D526AEC062 /* Images.xcassets */; };
+		F2B0A208D0A637951217C1E9 /* DSIOConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A62A618949C058B0F0D9 /* DSIOConfig.m */; };
 		F2B0A416EDCF649D8F52C462 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B0ADA82B9642B921A68C90 /* CoreLocation.framework */; };
 		F2B0A4736C78BF53198B7094 /* DSIOEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B0A99E7F34E6D277FE20F1 /* DSIOEvents.m */; };
 		F2B0A5EC800668D435484C35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B0AC1923FC454DED1A394F /* Main.storyboard */; };
@@ -59,8 +60,10 @@
 		F2B0A0BA9C5EDA6B56FD7F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		F2B0A0DEBEAF57075469FF2F /* DSIOSampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOSampleData.h; sourceTree = "<group>"; };
 		F2B0A11D399EE5F1A9BF0D44 /* DSIOLocationMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOLocationMgr.m; sourceTree = "<group>"; };
+		F2B0A47ED30D0AA3646BF4C4 /* DSIOConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOConfig.h; sourceTree = "<group>"; };
 		F2B0A4F98179B505F4AC15C1 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F2B0A5E49ABE3894B5A2ABE1 /* dataSnapSample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "dataSnapSample-Prefix.pch"; sourceTree = "<group>"; };
+		F2B0A62A618949C058B0F0D9 /* DSIOConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOConfig.m; sourceTree = "<group>"; };
 		F2B0A63E7A205A72F31389E4 /* DSIOSampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSIOSampleData.m; sourceTree = "<group>"; };
 		F2B0A87007F1ECDB9C2DAF33 /* DSIOLocationMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSIOLocationMgr.h; sourceTree = "<group>"; };
 		F2B0A96B18485957E05A05FB /* dataSnapSample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "dataSnapSample-Info.plist"; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				F2B0A87007F1ECDB9C2DAF33 /* DSIOLocationMgr.h */,
 				F2B0A99E7F34E6D277FE20F1 /* DSIOEvents.m */,
 				F2B0AFDEA349EBBA43F6B4B5 /* DSIOEvents.h */,
+				F2B0A62A618949C058B0F0D9 /* DSIOConfig.m */,
+				F2B0A47ED30D0AA3646BF4C4 /* DSIOConfig.h */,
 			);
 			path = DataSnap;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				F2B0AE14A21F81BEFBB569D5 /* DSIOSampleData.m in Sources */,
 				F2B0A1623B72A6B46C383350 /* DSIOLocationMgr.m in Sources */,
 				F2B0A4736C78BF53198B7094 /* DSIOEvents.m in Sources */,
+				F2B0A208D0A637951217C1E9 /* DSIOConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

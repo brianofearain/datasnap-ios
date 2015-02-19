@@ -61,8 +61,6 @@
 + (NSMutableDictionary *) getSampleBeaconSightingEvent{
     NSArray *beaconSightingSampleValues =  [self getBeaconEventSampleValues] ;
     NSArray *beaconSightingEventKeys = [DSIOProperties getBeaconSightingEventProperties] ;
-    NSLog(@"here6");
-
     NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconSightingSampleValues
                                                                      forKeys:beaconSightingEventKeys];
     return beaconSighting;
@@ -109,8 +107,6 @@
 + (NSMutableDictionary *) getSampleGeofenceEvent{
     NSArray *geofenceSampleValues =  [self getGeofenceEventSampleValues] ;
     NSArray *geofenceEventKeys = [DSIOEvents getGeofenceEventKeys] ;
-    NSLog(@"here7");
-
     NSMutableDictionary *geoEvent = [NSMutableDictionary dictionaryWithObjects:geofenceSampleValues
                                                                              forKeys:geofenceEventKeys];
     return geoEvent;
@@ -135,8 +131,6 @@
 + (NSMutableDictionary *) getSamplePlaceEvent{
     NSArray *placeSampleValues =  [self getPlaceEventSampleValues] ;
     NSArray *placeEventKeys = [DSIOEvents getPlaceEventKeys] ;
-    NSLog(@"here8");
-
     NSMutableDictionary *place = [NSMutableDictionary dictionaryWithObjects:placeSampleValues
                                                                        forKeys:placeEventKeys];
     return place;
@@ -155,8 +149,6 @@
 + (NSMutableDictionary *) getSampleGlobalPositionEvent{
     NSArray *globalPositionSampleValues =  [self getGlobalPositionEventSampleValues] ;
     NSArray *globalPositionEventKeys = [DSIOEvents getGlobalPositionEventKeys] ;
-    NSLog(@"here9");
-
     NSMutableDictionary *globalPosition = [NSMutableDictionary dictionaryWithObjects:globalPositionSampleValues
                                                                              forKeys:globalPositionEventKeys];
     return globalPosition;
@@ -202,8 +194,6 @@
 + (NSMutableDictionary *) getSampleCommunicationEvent{
     NSArray *communicationSampleValues =  [self getCommunicationEventSampleValues] ;
     NSArray *communicationEventKeys = [DSIOEvents getCommunicationEventKeys] ;
-    NSLog(@"here10");
-
     NSMutableDictionary *globalPosition = [NSMutableDictionary dictionaryWithObjects:communicationSampleValues
                                                                              forKeys:communicationEventKeys];
     return globalPosition;

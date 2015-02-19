@@ -7,12 +7,12 @@
 #import "DSIORequest.h"
 #import "DSIOLocationMgr.h"
 #import <objc/runtime.h>
+#import "DSIOConfig.h"
 
 static DSIOClient *__sharedInstance = nil;
 const int eventQueueSize = 20;
 static NSString *__organizationID;
 static NSString *__projectID;
-static BOOL loggingEnabled = NO;
 
 @implementation NSMutableDictionary (AddNotNil)
 
@@ -38,7 +38,8 @@ static BOOL loggingEnabled = NO;
 
 #pragma mark - Init the SDK with org id, project id, apikey and apisecret
 
-+ (void) setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret {
++ (void) setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret logging:(BOOL)logging {
+    [self debug:logging];
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         __sharedInstance = [[self alloc] initWithOrgandProjIDs:organizationID projectId:(NSString *) projectID APIKey:APIKey APISecret:APISecret];
@@ -72,7 +73,7 @@ static BOOL loggingEnabled = NO;
     if ([eventDetails valueForKeyPath:@"beacon.identifier"] != nil)
         [self eventHandler:eventDetails];
     else {
-        NSLog(@"Unable to create beacon event, beacon properties not correct");
+        DSIOLog(@"Unable to create beacon event, beacon properties not correct");
     }
 }
 
@@ -80,7 +81,7 @@ static BOOL loggingEnabled = NO;
     if ([eventDetails valueForKeyPath:@"geofence.identifier"]!= nil)
         [self eventHandler:eventDetails];
     else {
-        NSLog(@"Unable to create beacon event, beacon properties not correct");
+        DSIOLog(@"Unable to create beacon event, beacon properties not correct");
     }
 }
 
@@ -90,7 +91,7 @@ static BOOL loggingEnabled = NO;
         [self eventHandler:eventDetails];
     }
     else {
-        NSLog(@"Unable to create GPS event, GPS properties not correct");
+        DSIOLog(@"Unable to create GPS event, GPS properties not correct");
     }
 }
 
@@ -98,7 +99,7 @@ static BOOL loggingEnabled = NO;
     if ([eventDetails valueForKeyPath:@"place.id"] != nil)
         [self eventHandler:eventDetails];
     else {
-        NSLog(@"Unable to create place event, place properties not correct");
+        DSIOLog(@"Unable to create place event, place properties not correct");
     }
 }
 
@@ -106,7 +107,7 @@ static BOOL loggingEnabled = NO;
     if ([eventDetails valueForKeyPath:@"communication.identifier"] != nil)
         [self eventHandler:eventDetails];
     else {
-        NSLog(@"Unable to create communication event, communication properties not correct");
+        DSIOLog(@"Unable to create communication event, communication properties not correct");
     }
 }
 
@@ -122,7 +123,7 @@ static BOOL loggingEnabled = NO;
 
 - (void)checkQueue {
     if (self.eventQueue.numberOfQueuedEvents >= self.eventQueue.queueLength) {
-        DSLog(@"Queue is full. %d will be sent to service and flushed.", (int) self.eventQueue.numberOfQueuedEvents);
+        DSIOLog(@"Queue is full. %d will be sent to service and flushed.", (int) self.eventQueue.numberOfQueuedEvents);
         [self.requestHandler sendEvents:self.eventQueue.getEvents];
         [self flushEvents];
     }
@@ -131,17 +132,10 @@ static BOOL loggingEnabled = NO;
 
 #pragma mark - Turn on/off logging
 
-+ (void)disableLogging {
-    loggingEnabled = NO;
++ (void)debug:(BOOL)showDebugLogs {
+    DSIOSetShowDebugLogs(showDebugLogs);
 }
 
-+ (void)enableLogging {
-    loggingEnabled = YES;
-}
-
-+ (BOOL)isLoggingEnabled {
-    return loggingEnabled;
-}
 
 @end
 

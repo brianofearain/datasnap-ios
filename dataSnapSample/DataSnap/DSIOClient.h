@@ -5,7 +5,8 @@
 
 @interface DSIOClient : NSObject
 
-+ (void)setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret;
++ (void)setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey
+                     APISecret:(NSString *)APISecret logging:(BOOL)logging;
 
 /**
 Event Handlers
@@ -20,18 +21,9 @@ Event Handlers
 - (void)communicationEvent:(NSMutableDictionary *)eventDetails;
 - (void)campaignEvent:(NSMutableDictionary *)eventDetails;
 
-/**
-Enable/disable logging.
-*/
-+ (void)enableLogging;
-+ (void)disableLogging;
-+ (BOOL)isLoggingEnabled;
+//Enable Logging
++ (void)debug:(BOOL)showDebugLogs;
 
 + (id)sharedClient;
 
 @end
-
-/**
-DSLog macro
-*/
-#define DSLog(message, ...)if([DSIOClient isLoggingEnabled]) NSLog(message, ##__VA_ARGS__)

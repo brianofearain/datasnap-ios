@@ -3,6 +3,7 @@
 //
 
 #import "DSIOProperties.h"
+#import "DSIOConfig.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
@@ -42,7 +43,7 @@ static NSMutableDictionary *__globalData;
                                                        options:(NSJSONWritingOptions) (pretty ? NSJSONWritingPrettyPrinted : 0)
                                                          error:&error];
     if (!jsonData) {
-        NSLog(@"jsonStringFromObject: error: %@", error.localizedDescription);
+        DSIOLog(@"jsonStringFromObject: error: %@", error.localizedDescription);
         return @"{}";
     } else {
         return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

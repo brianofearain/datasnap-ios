@@ -3,6 +3,7 @@
 //
 
 #import "DSIOLocationMgr.h"
+#import "DSIOConfig.h"
 
 
 @interface DSIOLocationMgr ()
@@ -58,7 +59,7 @@
         _lastLocationTimestamp = location.timestamp;
     } else if ([location.timestamp timeIntervalSinceDate:self.lastLocationTimestamp] >= 10) {
         // TODO: Do something with the location coördinates
-        NSLog(@"%@: %f, %f, %f", location.timestamp, location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
+        DSIOLog(@"%@: %f, %f, %f", location.timestamp, location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
         _lastLocationTimestamp = location.timestamp;
         [self suspendLocationUpdates];
     }
@@ -99,7 +100,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    NSLog(@"%@", error);
+    DSIOLog(@"%@", error);
 }
 
 @end
