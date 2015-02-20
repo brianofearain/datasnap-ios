@@ -12,7 +12,8 @@
                              projectId:@"2qM5ckFqzFCcCIdY7xYhBc"
                                 APIKey:@"5Z0TKJ8GLZOR40IU4CBOEH78B"
                              APISecret:@"PDGIbwW25CbUkRSIp/OOB+WniDDudG/Pu+jfjzAEfwQ"
-                             logging:true];
+                             logging:true
+                              eventNum:15];
 
     return YES;
     }

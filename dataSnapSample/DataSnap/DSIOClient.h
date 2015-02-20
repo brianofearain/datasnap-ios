@@ -6,7 +6,7 @@
 @interface DSIOClient : NSObject
 
 + (void)setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey
-                     APISecret:(NSString *)APISecret logging:(BOOL)logging;
+                     APISecret:(NSString *)APISecret logging:(BOOL)logging eventNum:(NSInteger*)eventNum;
 
 /**
 Event Handlers

@@ -38,6 +38,9 @@
     [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&res error:&err];
     NSInteger responseCode = [res statusCode];
     if((responseCode/100) != 2){
+        if(responseCode == 0) {
+            DSIOLog(@"Please check network connection on the device and that the datasnap api keys have been entered correctly");
+        }
         DSIOLog(@"Error sending request to %@. Response code: %d.\n", urlRequest.URL, (int) responseCode);
         DSIOLog(json);
         if(err){

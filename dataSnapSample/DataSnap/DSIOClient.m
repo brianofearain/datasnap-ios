@@ -10,7 +10,7 @@
 #import "DSIOConfig.h"
 
 static DSIOClient *__sharedInstance = nil;
-const int eventQueueSize = 20;
+static int eventQueueSize = 20;
 static NSString *__organizationID;
 static NSString *__projectID;
 
@@ -38,18 +38,20 @@ static NSString *__projectID;
 
 #pragma mark - Init the SDK with org id, project id, apikey and apisecret
 
-+ (void) setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret logging:(BOOL)logging {
++ (void) setupWithOrgAndProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret
+                        logging:(BOOL)logging eventNum:(NSInteger*)eventNum {
     [self debug:logging];
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
-        __sharedInstance = [[self alloc] initWithOrgandProjIDs:organizationID projectId:(NSString *) projectID APIKey:APIKey APISecret:APISecret];
+        __sharedInstance = [[self alloc] initWithOrgandProjIDs:organizationID projectId:(NSString *) projectID APIKey:APIKey APISecret:APISecret eventNum:eventNum];
     });
 }
 
-- (id)initWithOrgandProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret {
+- (id)initWithOrgandProjIDs:(NSString *)organizationID projectId:(NSString *)projectID APIKey:(NSString *)APIKey APISecret:(NSString *)APISecret eventNum:(NSInteger*)eventNum {
     if (self = [self init]) {
         __organizationID = organizationID;
         __projectID = projectID;
+        eventQueueSize = eventNum;
         NSData *authData = [[NSString stringWithFormat:@"%@:%@", APIKey, APISecret] dataUsingEncoding:NSUTF8StringEncoding];
         NSString *authString = [authData base64EncodedStringWithOptions:0];
         self.eventQueue = [[DSIOEventQueue alloc] initWithSize:eventQueueSize];
