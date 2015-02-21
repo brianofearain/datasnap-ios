@@ -221,7 +221,6 @@ static NSMutableDictionary *__globalData;
 }
 
 
-/*
 + (NSDictionary *)getUserInfo{
     NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithDictionary:[DSIOProperties getSystemData]];
     [data addNotNilEntriesFromDictionary:[DSIOProperties getCarrierData]];
@@ -268,7 +267,39 @@ static NSMutableDictionary *__globalData;
     [dataDict[@"datasnap"][@"device"] addNotNilEntriesFromDictionary:carrierData];
     return dataDict;
 }
-*/
+// TODO - move or refactor this pattern
++ (NSArray *)getUserIdentificationKeys {
+    return @[@"mobile_device_bluetooth_identifier",
+            @"mobile_device_ios_idfa",
+            @"mobile_device_ios_openidfa",
+            @"mobile_device_ios_idfv",
+            @"mobile_device_ios_udid",
+            @"datasnap_uuid",
+            @"web_domain_userid",
+            @"web_cookie",
+            @"domain_sessionid",
+            @"web_network_userid",
+            @"web_user_fingerprint",
+            @"web_analytics_company_z_cookie",
+            @"global_distinct_id",
+            @"global_user_ipaddress",
+            @"mobile_device_fingerprint",
+            @"facebook_uid",
+            @"mobile_device_google_advertising_id",
+            @"mobile_device_google_google_advertising_id_opt_in"];
+}
+
++ (NSArray *)getDataSnapDeviceKeys {
+    return @[@"user_agent",
+            @"ip_address",
+            @"platform",
+            @"os_version",
+            @"model",
+            @"manufacturer",
+            @"name",
+            @"vendor_id"];
+}
+
 
 
 

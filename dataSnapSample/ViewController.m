@@ -50,20 +50,28 @@ NSString *currentDate() {
     DeviceLog(message);
 }
 
-
 /*
-*  This sample function shows how to get the properties required by the Datasnap API from DSIOEvents.
-*  DSIOSampleData contains sample data and functions showing how to build these properties with dictionaries.
-*  Once the properties are built they can be sent to
-*  dictionaries
+*  This sample function shows how to build a beacon sighting event.
+*  The beacon data is sample data- but the other properties (user and datasnap) are obtained using real data
+*  and can be reused as is in your application. The "user" property is important because the value "datasnap_app_user_id" is required
+*  by the SDK.
 * */
 
-- (void)buildBeaconEvent{
-    NSArray *beaconEventSampleValues =  [DSIOSampleData getBeaconEventSampleValues] ;
-    NSArray *beaconEventKeys = [DSIOEvents getBeaconEventKeys] ;
-    NSMutableDictionary *beaconSighting = [NSMutableDictionary dictionaryWithObjects:beaconEventSampleValues forKeys:beaconEventKeys];
-    [[DSIOClient sharedClient] beaconEvent:beaconSighting];
-    [self logToDeviceAndConsole:@"Datasnap Beacon Sighting Event %@"];
+- (void)buildBeaconEvent {
+    // Create a top level dictionary and pass values to it
+    NSMutableDictionary *eventData = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *beaconDictionary = [[NSMutableDictionary alloc] init];
+
+    [beaconDictionary addEntriesFromDictionary:@{ @"identifier" : [NSString stringWithFormat:@"%@/%@/%@", @"SampleBeacon", @"123",@"23"],
+            @"distance" : @"45", @"major" : @"23",
+            @"minor" : @"123", @"rssi" : [NSString stringWithFormat:@"%d", 34]}];
+
+    [eventData addEntriesFromDictionary:@{@"beacon" : beaconDictionary, @"event_type" : @"beacon_sighting",
+            @"datasnap" : [DSIOProperties  getDataSnap], @"user" : [DSIOProperties getUserInfo] }];
+    [[DSIOClient sharedClient] genericEvent:eventData];
+    [self logToDeviceAndConsole:@"Datasnap Estimote Beacon Sighting Event %@"];
+    NSLog(@"Dictionary: %@", [eventData description]);
+
 }
 
 /*
